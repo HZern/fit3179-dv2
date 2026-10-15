@@ -2,29 +2,14 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "description": "Flow map of international higher education students in Australia from the 15 largest source countries, 2024.",
   "width": "container",
-  "height": 430,
+  "height": 500,
   "projection": {
-    "type": "equalEarth",
-    "rotate": [
-      -100,
-      0
+    "type": "mercator",
+    "center": [
+      104,
+      -2
     ],
-    "fit": {
-      "type": "Feature",
-      "geometry": {
-        "type": "MultiPoint",
-        "coordinates": [
-          [
-            40,
-            38
-          ],
-          [
-            158,
-            -44
-          ]
-        ]
-      }
-    }
+    "scale": 330
   },
   "layer": [
     {
@@ -223,6 +208,40 @@
           }
         }
       ]
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "fontSize": 12.5,
+        "lineHeight": 18,
+        "color": "#1d2433",
+        "text": [
+          "589,288 international students",
+          "were enrolled in 2024.",
+          "",
+          "China, India and Nepal alone",
+          "make up 51% of them.",
+          "",
+          "Malaysia is 6th (23,621),",
+          "ahead of Indonesia and",
+          "the Philippines."
+        ]
+      },
+      "encoding": {
+        "longitude": {
+          "datum": 150
+        },
+        "latitude": {
+          "datum": 27
+        }
+      }
     },
     {
       "data": {

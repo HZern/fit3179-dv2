@@ -28,8 +28,8 @@
   },
   "columns": 4,
   "spec": {
-    "width": 170,
-    "height": 170,
+    "width": 206,
+    "height": 210,
     "encoding": {
       "x": {
         "field": "year",

@@ -39,8 +39,8 @@
   },
   "columns": 2,
   "spec": {
-    "width": 112,
-    "height": 112,
+    "width": 168,
+    "height": 168,
     "layer": [
       {
         "mark": {
@@ -95,8 +95,8 @@
     ]
   },
   "spacing": {
-    "column": 80,
-    "row": 22
+    "column": 34,
+    "row": 26
   },
   "config": {
     "font": "IBM Plex Sans",

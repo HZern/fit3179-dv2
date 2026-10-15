@@ -19,7 +19,7 @@
     }
   ],
   "width": "container",
-  "height": 210,
+  "height": 380,
   "encoding": {
     "y": {
       "field": "rowlbl",
@@ -34,9 +34,9 @@
       "axis": {
         "domain": false,
         "ticks": false,
-        "labelFontSize": 12,
+        "labelFontSize": 15,
         "labelFontWeight": 600,
-        "labelPadding": 10
+        "labelPadding": 14
       }
     }
   },
@@ -46,7 +46,7 @@
         "type": "point",
         "shape": "M -0.3 -0.68 A 0.3 0.3 0 1 0 0.3 -0.68 A 0.3 0.3 0 1 0 -0.3 -0.68 Z M -0.48 -0.26 L 0.48 -0.26 L 0.48 0.38 L 0.27 0.38 L 0.27 1 L -0.27 1 L -0.27 0.38 L -0.48 0.38 Z",
         "filled": true,
-        "size": 260,
+        "size": 1050,
         "opacity": 1
       },
       "encoding": {
@@ -56,8 +56,8 @@
           "axis": null,
           "scale": {
             "domain": [
-              -0.5,
-              38
+              -0.6,
+              34.5
             ]
           }
         },
@@ -76,7 +76,10 @@
             ]
           },
           "legend": {
-            "orient": "top"
+            "orient": "top",
+            "labelFontSize": 13,
+            "titleFontSize": 13,
+            "symbolSize": 260
           }
         },
         "tooltip": [
@@ -124,9 +127,10 @@
       "mark": {
         "type": "text",
         "align": "left",
-        "dx": 14,
-        "fontSize": 12,
-        "fontWeight": 600
+        "dx": 24,
+        "fontSize": 17,
+        "fontWeight": 700,
+        "font": "Space Grotesk"
       },
       "encoding": {
         "x": {
