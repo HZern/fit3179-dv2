@@ -1,0 +1,478 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Proportional symbol map of Australian universities sized by number of STEM enrolments, 2024.",
+  "width": "container",
+  "height": 330,
+  "projection": {
+    "type": "conicEqualArea",
+    "parallels": [
+      -18,
+      -36
+    ],
+    "rotate": [
+      -134,
+      0
+    ],
+    "center": [
+      0,
+      -27.5
+    ]
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "data/au_states.topo.json",
+        "format": {
+          "type": "topojson",
+          "feature": "states"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#e7e3da",
+        "stroke": "#fff",
+        "strokeWidth": 1
+      }
+    },
+    {
+      "data": {
+        "url": "data/universities_stem_2024.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "lat": "number",
+            "lon": "number",
+            "total": "number",
+            "stem": "number",
+            "stem_share": "number",
+            "Natural & physical sciences": "number",
+            "Information technology": "number",
+            "Engineering": "number",
+            "Agriculture & environment": "number"
+          }
+        }
+      },
+      "transform": [
+        {
+          "filter": "datum.stem > 0"
+        }
+      ],
+      "mark": {
+        "type": "circle",
+        "stroke": "#fff",
+        "strokeWidth": 0.8
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "size": {
+          "field": "stem",
+          "type": "quantitative",
+          "title": "STEM enrolments",
+          "scale": {
+            "range": [
+              10,
+              1300
+            ]
+          },
+          "legend": {
+            "orient": "top",
+            "values": [
+              5000,
+              15000,
+              35000
+            ],
+            "labelExpr": "format(datum.value, ',')",
+            "symbolFillColor": "#2a9d8f",
+            "symbolOpacity": 0.6
+          }
+        },
+        "color": {
+          "value": "#2a9d8f"
+        },
+        "opacity": {
+          "condition": {
+            "param": "hov",
+            "empty": false,
+            "value": 0.95
+          },
+          "value": 0.55
+        },
+        "order": {
+          "field": "stem",
+          "sort": "descending"
+        },
+        "tooltip": [
+          {
+            "field": "university",
+            "title": "University"
+          },
+          {
+            "field": "city",
+            "title": "Main campus"
+          },
+          {
+            "field": "stem",
+            "format": ",",
+            "title": "STEM enrolments"
+          },
+          {
+            "field": "stem_share",
+            "title": "% of its students in STEM"
+          },
+          {
+            "field": "Information technology",
+            "format": ",",
+            "title": " - IT"
+          },
+          {
+            "field": "Engineering",
+            "format": ",",
+            "title": " - Engineering"
+          },
+          {
+            "field": "Natural & physical sciences",
+            "format": ",",
+            "title": " - Sciences"
+          },
+          {
+            "field": "Agriculture & environment",
+            "format": ",",
+            "title": " - Agriculture & env."
+          }
+        ]
+      },
+      "params": [
+        {
+          "name": "hov",
+          "select": {
+            "type": "point",
+            "on": "pointerover",
+            "clear": "pointerout",
+            "fields": [
+              "university"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 16,
+        "dy": -4,
+        "fontSize": 10.5,
+        "fontWeight": 600,
+        "color": "#1d2433",
+        "text": "Sydney: 6 unis, 102k",
+        "stroke": "#fbfaf7",
+        "strokeWidth": 3,
+        "strokeJoin": "round"
+      },
+      "encoding": {
+        "longitude": {
+          "datum": 151.25
+        },
+        "latitude": {
+          "datum": -33.87
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 16,
+        "dy": -4,
+        "fontSize": 10.5,
+        "fontWeight": 600,
+        "color": "#1d2433",
+        "text": "Sydney: 6 unis, 102k"
+      },
+      "encoding": {
+        "longitude": {
+          "datum": 151.25
+        },
+        "latitude": {
+          "datum": -33.87
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "dx": 0,
+        "dy": 26,
+        "fontSize": 10.5,
+        "fontWeight": 600,
+        "color": "#1d2433",
+        "text": "Melbourne: 7 unis, 123k",
+        "stroke": "#fbfaf7",
+        "strokeWidth": 3,
+        "strokeJoin": "round"
+      },
+      "encoding": {
+        "longitude": {
+          "datum": 145.0
+        },
+        "latitude": {
+          "datum": -37.85
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "dx": 0,
+        "dy": 26,
+        "fontSize": 10.5,
+        "fontWeight": 600,
+        "color": "#1d2433",
+        "text": "Melbourne: 7 unis, 123k"
+      },
+      "encoding": {
+        "longitude": {
+          "datum": 145.0
+        },
+        "latitude": {
+          "datum": -37.85
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": -8,
+        "dy": 22,
+        "fontSize": 10.5,
+        "fontWeight": 600,
+        "color": "#1d2433",
+        "text": "Perth: 5 unis, 40k",
+        "stroke": "#fbfaf7",
+        "strokeWidth": 3,
+        "strokeJoin": "round"
+      },
+      "encoding": {
+        "longitude": {
+          "datum": 115.86
+        },
+        "latitude": {
+          "datum": -31.95
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": -8,
+        "dy": 22,
+        "fontSize": 10.5,
+        "fontWeight": 600,
+        "color": "#1d2433",
+        "text": "Perth: 5 unis, 40k"
+      },
+      "encoding": {
+        "longitude": {
+          "datum": 115.86
+        },
+        "latitude": {
+          "datum": -31.95
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 14,
+        "dy": 0,
+        "fontSize": 10.5,
+        "fontWeight": 600,
+        "color": "#1d2433",
+        "text": "Brisbane",
+        "stroke": "#fbfaf7",
+        "strokeWidth": 3,
+        "strokeJoin": "round"
+      },
+      "encoding": {
+        "longitude": {
+          "datum": 153.03
+        },
+        "latitude": {
+          "datum": -27.5
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 14,
+        "dy": 0,
+        "fontSize": 10.5,
+        "fontWeight": 600,
+        "color": "#1d2433",
+        "text": "Brisbane"
+      },
+      "encoding": {
+        "longitude": {
+          "datum": 153.03
+        },
+        "latitude": {
+          "datum": -27.5
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": -12,
+        "dy": 4,
+        "fontSize": 10.5,
+        "fontWeight": 600,
+        "color": "#1d2433",
+        "text": "Adelaide",
+        "stroke": "#fbfaf7",
+        "strokeWidth": 3,
+        "strokeJoin": "round"
+      },
+      "encoding": {
+        "longitude": {
+          "datum": 138.6
+        },
+        "latitude": {
+          "datum": -34.93
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": -12,
+        "dy": 4,
+        "fontSize": 10.5,
+        "fontWeight": 600,
+        "color": "#1d2433",
+        "text": "Adelaide"
+      },
+      "encoding": {
+        "longitude": {
+          "datum": 138.6
+        },
+        "latitude": {
+          "datum": -34.93
+        }
+      }
+    }
+  ],
+  "config": {
+    "font": "IBM Plex Sans",
+    "background": null,
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelColor": "#5f6b7a",
+      "titleColor": "#5f6b7a",
+      "labelFontSize": 11,
+      "titleFontSize": 11,
+      "titleFontWeight": 500,
+      "gridColor": "#e6e3dc",
+      "domainColor": "#c9c4b8",
+      "tickColor": "#c9c4b8"
+    },
+    "legend": {
+      "labelColor": "#1d2433",
+      "titleColor": "#5f6b7a",
+      "labelFontSize": 11,
+      "titleFontSize": 11,
+      "titleFontWeight": 500,
+      "orient": "top",
+      "symbolStrokeWidth": 0
+    },
+    "header": {
+      "labelColor": "#1d2433",
+      "labelFontSize": 12,
+      "labelFontWeight": 600,
+      "titleColor": "#5f6b7a"
+    },
+    "title": {
+      "color": "#1d2433",
+      "font": "Space Grotesk",
+      "fontSize": 15,
+      "fontWeight": 600,
+      "anchor": "start",
+      "subtitleColor": "#5f6b7a",
+      "subtitleFont": "IBM Plex Sans",
+      "subtitleFontSize": 12,
+      "offset": 10
+    },
+    "text": {
+      "font": "IBM Plex Sans",
+      "color": "#1d2433"
+    }
+  }
+}

@@ -1,0 +1,196 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Isotype chart of women and men working in STEM-qualified occupations in Australia, 2015 and 2025 (1 icon = 50,000 people).",
+  "data": {
+    "url": "data/workforce_isotype.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "year": "number",
+        "people": "number",
+        "i": "number"
+      }
+    }
+  },
+  "transform": [
+    {
+      "calculate": "datum.year + ' · ' + datum.gender",
+      "as": "rowlbl"
+    }
+  ],
+  "width": "container",
+  "height": 210,
+  "encoding": {
+    "y": {
+      "field": "rowlbl",
+      "type": "nominal",
+      "title": null,
+      "sort": [
+        "2015 · Women",
+        "2015 · Men",
+        "2025 · Women",
+        "2025 · Men"
+      ],
+      "axis": {
+        "domain": false,
+        "ticks": false,
+        "labelFontSize": 12,
+        "labelFontWeight": 600,
+        "labelPadding": 10
+      }
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "point",
+        "shape": "M -0.3 -0.68 A 0.3 0.3 0 1 0 0.3 -0.68 A 0.3 0.3 0 1 0 -0.3 -0.68 Z M -0.48 -0.26 L 0.48 -0.26 L 0.48 0.38 L 0.27 0.38 L 0.27 1 L -0.27 1 L -0.27 0.38 L -0.48 0.38 Z",
+        "filled": true,
+        "size": 260,
+        "opacity": 1
+      },
+      "encoding": {
+        "x": {
+          "field": "i",
+          "type": "quantitative",
+          "axis": null,
+          "scale": {
+            "domain": [
+              -0.5,
+              38
+            ]
+          }
+        },
+        "color": {
+          "field": "gender",
+          "type": "nominal",
+          "title": "1 figure = 50,000 workers",
+          "scale": {
+            "domain": [
+              "Women",
+              "Men"
+            ],
+            "range": [
+              "#c8553d",
+              "#9aa5b4"
+            ]
+          },
+          "legend": {
+            "orient": "top"
+          }
+        },
+        "tooltip": [
+          {
+            "field": "year",
+            "title": "Year"
+          },
+          {
+            "field": "gender",
+            "title": "Gender"
+          },
+          {
+            "field": "people",
+            "format": ",",
+            "title": "People in STEM-qualified jobs"
+          }
+        ]
+      }
+    },
+    {
+      "transform": [
+        {
+          "aggregate": [
+            {
+              "op": "max",
+              "field": "i",
+              "as": "last"
+            },
+            {
+              "op": "max",
+              "field": "people",
+              "as": "people"
+            }
+          ],
+          "groupby": [
+            "rowlbl",
+            "gender"
+          ]
+        },
+        {
+          "calculate": "format(datum.people/1000, ',.0f') + 'k'",
+          "as": "lbl"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 14,
+        "fontSize": 12,
+        "fontWeight": 600
+      },
+      "encoding": {
+        "x": {
+          "field": "last",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "lbl"
+        },
+        "color": {
+          "condition": {
+            "test": "datum.gender == 'Women'",
+            "value": "#c8553d"
+          },
+          "value": "#6f7b8c"
+        }
+      }
+    }
+  ],
+  "config": {
+    "font": "IBM Plex Sans",
+    "background": null,
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelColor": "#5f6b7a",
+      "titleColor": "#5f6b7a",
+      "labelFontSize": 11,
+      "titleFontSize": 11,
+      "titleFontWeight": 500,
+      "gridColor": "#e6e3dc",
+      "domainColor": "#c9c4b8",
+      "tickColor": "#c9c4b8"
+    },
+    "legend": {
+      "labelColor": "#1d2433",
+      "titleColor": "#5f6b7a",
+      "labelFontSize": 11,
+      "titleFontSize": 11,
+      "titleFontWeight": 500,
+      "orient": "top",
+      "symbolStrokeWidth": 0
+    },
+    "header": {
+      "labelColor": "#1d2433",
+      "labelFontSize": 12,
+      "labelFontWeight": 600,
+      "titleColor": "#5f6b7a"
+    },
+    "title": {
+      "color": "#1d2433",
+      "font": "Space Grotesk",
+      "fontSize": 15,
+      "fontWeight": 600,
+      "anchor": "start",
+      "subtitleColor": "#5f6b7a",
+      "subtitleFont": "IBM Plex Sans",
+      "subtitleFontSize": 12,
+      "offset": 10
+    },
+    "text": {
+      "font": "IBM Plex Sans",
+      "color": "#1d2433"
+    }
+  }
+}

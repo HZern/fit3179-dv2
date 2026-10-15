@@ -1,0 +1,258 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Bump chart of the rank of each broad field of education by university enrolments, 2015-2024.",
+  "data": {
+    "url": "data/enrolments_by_field.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "year": "number",
+        "enrolments": "number",
+        "change_pct": "number",
+        "rank": "number"
+      }
+    }
+  },
+  "width": "container",
+  "height": 340,
+  "encoding": {
+    "x": {
+      "field": "year",
+      "type": "ordinal",
+      "title": null,
+      "axis": {
+        "labelAngle": 0,
+        "domain": false,
+        "ticks": false,
+        "labelExpr": "indexof(['2015','2018','2021','2024'], datum.label) >= 0 ? datum.label : ''"
+      }
+    },
+    "y": {
+      "field": "rank",
+      "type": "quantitative",
+      "title": "Rank (1 = most enrolments)",
+      "scale": {
+        "domain": [
+          0.6,
+          10.4
+        ],
+        "reverse": true,
+        "nice": false
+      },
+      "axis": {
+        "domain": false,
+        "ticks": false,
+        "grid": false,
+        "values": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "format": "d"
+      }
+    },
+    "color": {
+      "field": "field",
+      "type": "nominal",
+      "scale": {
+        "domain": [
+          "Management & commerce",
+          "Society & culture",
+          "Health",
+          "Information technology",
+          "Education",
+          "Natural & physical sciences",
+          "Engineering",
+          "Creative arts",
+          "Architecture & building",
+          "Agriculture & environment"
+        ],
+        "range": [
+          "#c3c8cf",
+          "#c3c8cf",
+          "#c3c8cf",
+          "#3d5a80",
+          "#c3c8cf",
+          "#2a9d8f",
+          "#e9a23b",
+          "#c3c8cf",
+          "#c3c8cf",
+          "#7fb069"
+        ]
+      },
+      "legend": null
+    },
+    "opacity": {
+      "condition": {
+        "param": "pick",
+        "value": 1
+      },
+      "value": 0.2
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "line",
+        "strokeWidth": 3,
+        "interpolate": "monotone"
+      },
+      "encoding": {
+        "detail": {
+          "field": "field"
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "circle",
+        "size": 70,
+        "opacity": 1
+      },
+      "encoding": {
+        "tooltip": [
+          {
+            "field": "field",
+            "title": "Field"
+          },
+          {
+            "field": "year",
+            "title": "Year"
+          },
+          {
+            "field": "rank",
+            "title": "Rank"
+          },
+          {
+            "field": "enrolments",
+            "format": ",",
+            "title": "Enrolments"
+          }
+        ]
+      },
+      "params": [
+        {
+          "name": "pick",
+          "select": {
+            "type": "point",
+            "fields": [
+              "field"
+            ],
+            "on": "pointerover",
+            "clear": "pointerout"
+          }
+        }
+      ]
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.year == 2024"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 10,
+        "fontSize": 11
+      },
+      "encoding": {
+        "text": {
+          "field": "field"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "year": 2023,
+            "rank": 3.5,
+            "t": "IT: 8th → 4th"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dy": 0,
+        "dx": 4,
+        "fontWeight": 600,
+        "fontSize": 11,
+        "fontStyle": "italic",
+        "color": "#3d5a80"
+      },
+      "encoding": {
+        "text": {
+          "field": "t"
+        },
+        "color": {
+          "value": "#3d5a80"
+        },
+        "opacity": {
+          "value": 1
+        }
+      }
+    }
+  ],
+  "config": {
+    "font": "IBM Plex Sans",
+    "background": null,
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelColor": "#5f6b7a",
+      "titleColor": "#5f6b7a",
+      "labelFontSize": 11,
+      "titleFontSize": 11,
+      "titleFontWeight": 500,
+      "gridColor": "#e6e3dc",
+      "domainColor": "#c9c4b8",
+      "tickColor": "#c9c4b8"
+    },
+    "legend": {
+      "labelColor": "#1d2433",
+      "titleColor": "#5f6b7a",
+      "labelFontSize": 11,
+      "titleFontSize": 11,
+      "titleFontWeight": 500,
+      "orient": "top",
+      "symbolStrokeWidth": 0
+    },
+    "header": {
+      "labelColor": "#1d2433",
+      "labelFontSize": 12,
+      "labelFontWeight": 600,
+      "titleColor": "#5f6b7a"
+    },
+    "title": {
+      "color": "#1d2433",
+      "font": "Space Grotesk",
+      "fontSize": 15,
+      "fontWeight": 600,
+      "anchor": "start",
+      "subtitleColor": "#5f6b7a",
+      "subtitleFont": "IBM Plex Sans",
+      "subtitleFontSize": 12,
+      "offset": 10
+    },
+    "text": {
+      "font": "IBM Plex Sans",
+      "color": "#1d2433"
+    },
+    "padding": {
+      "right": 165,
+      "left": 5,
+      "top": 5,
+      "bottom": 5
+    }
+  }
+}

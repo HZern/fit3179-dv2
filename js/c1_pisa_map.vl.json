@@ -1,0 +1,386 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Choropleth map of PISA 2022 mean mathematics scores by country (OECD).",
+  "width": "container",
+  "height": 380,
+  "projection": {
+    "type": "equalEarth"
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "https://cdn.jsdelivr.net/npm/world-atlas@2.0.2/countries-50m.json",
+        "format": {
+          "type": "topojson",
+          "feature": "countries"
+        }
+      },
+      "transform": [
+        {
+          "filter": "datum.properties.name != 'Antarctica'"
+        }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "fill": "#e4e0d8",
+        "stroke": "#fff",
+        "strokeWidth": 0.4
+      }
+    },
+    {
+      "data": {
+        "url": "https://cdn.jsdelivr.net/npm/world-atlas@2.0.2/countries-50m.json",
+        "format": {
+          "type": "topojson",
+          "feature": "countries"
+        }
+      },
+      "transform": [
+        {
+          "lookup": "properties.name",
+          "from": {
+            "data": {
+              "url": "data/pisa2022_maths.csv",
+              "format": {
+                "type": "csv",
+                "parse": {
+                  "maths": "number",
+                  "rank": "number"
+                }
+              }
+            },
+            "key": "name",
+            "fields": [
+              "maths",
+              "rank",
+              "pisa_name"
+            ]
+          }
+        },
+        {
+          "filter": "isValid(datum.maths)"
+        }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "stroke": "#fff",
+        "strokeWidth": 0.4
+      },
+      "encoding": {
+        "color": {
+          "field": "maths",
+          "type": "quantitative",
+          "title": "Mean maths score (OECD average = 472)",
+          "scale": {
+            "type": "threshold",
+            "domain": [
+              400,
+              440,
+              472,
+              500,
+              540
+            ],
+            "range": [
+              "#f3e3d3",
+              "#e4c3a4",
+              "#c8d9d6",
+              "#7fb8b1",
+              "#2a8c83",
+              "#105e5a"
+            ]
+          },
+          "legend": {
+            "orient": "top",
+            "direction": "horizontal",
+            "titleLimit": 400
+          }
+        },
+        "strokeWidth": {
+          "condition": {
+            "param": "hover",
+            "empty": false,
+            "value": 1.8
+          },
+          "value": 0.4
+        },
+        "stroke": {
+          "condition": {
+            "param": "hover",
+            "empty": false,
+            "value": "#1d2433"
+          },
+          "value": "#fff"
+        },
+        "tooltip": [
+          {
+            "field": "pisa_name",
+            "title": "Country / economy"
+          },
+          {
+            "field": "maths",
+            "title": "PISA 2022 maths score"
+          },
+          {
+            "field": "rank",
+            "title": "Rank (of 81)"
+          }
+        ]
+      },
+      "params": [
+        {
+          "name": "hover",
+          "select": {
+            "type": "point",
+            "on": "pointerover",
+            "clear": "pointerout",
+            "fields": [
+              "properties.name"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "lon": 134,
+            "lat": -25
+          },
+          {
+            "lon": 101.7,
+            "lat": 3.6
+          },
+          {
+            "lon": 103.8,
+            "lat": 1.35
+          }
+        ]
+      },
+      "mark": {
+        "type": "circle",
+        "size": 26,
+        "color": "#1d2433",
+        "stroke": "#fff",
+        "strokeWidth": 1,
+        "opacity": 1
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 8,
+        "dy": 0,
+        "fontSize": 11.5,
+        "fontWeight": 600,
+        "color": "#1d2433",
+        "text": "Australia 487 (above OECD avg)",
+        "stroke": "#fbfaf7",
+        "strokeWidth": 3,
+        "strokeJoin": "round"
+      },
+      "encoding": {
+        "longitude": {
+          "datum": 134
+        },
+        "latitude": {
+          "datum": -25
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 8,
+        "dy": 0,
+        "fontSize": 11.5,
+        "fontWeight": 600,
+        "color": "#1d2433",
+        "text": "Australia 487 (above OECD avg)"
+      },
+      "encoding": {
+        "longitude": {
+          "datum": 134
+        },
+        "latitude": {
+          "datum": -25
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": -8,
+        "dy": -6,
+        "fontSize": 11.5,
+        "fontWeight": 600,
+        "color": "#c8553d",
+        "text": "Malaysia 409",
+        "stroke": "#fbfaf7",
+        "strokeWidth": 3,
+        "strokeJoin": "round"
+      },
+      "encoding": {
+        "longitude": {
+          "datum": 101.7
+        },
+        "latitude": {
+          "datum": 3.6
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": -8,
+        "dy": -6,
+        "fontSize": 11.5,
+        "fontWeight": 600,
+        "color": "#c8553d",
+        "text": "Malaysia 409"
+      },
+      "encoding": {
+        "longitude": {
+          "datum": 101.7
+        },
+        "latitude": {
+          "datum": 3.6
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": -8,
+        "dy": 10,
+        "fontSize": 11.5,
+        "fontWeight": 600,
+        "color": "#1d2433",
+        "text": "Singapore 575 (1st)",
+        "stroke": "#fbfaf7",
+        "strokeWidth": 3,
+        "strokeJoin": "round"
+      },
+      "encoding": {
+        "longitude": {
+          "datum": 103.8
+        },
+        "latitude": {
+          "datum": 1.35
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": -8,
+        "dy": 10,
+        "fontSize": 11.5,
+        "fontWeight": 600,
+        "color": "#1d2433",
+        "text": "Singapore 575 (1st)"
+      },
+      "encoding": {
+        "longitude": {
+          "datum": 103.8
+        },
+        "latitude": {
+          "datum": 1.35
+        }
+      }
+    }
+  ],
+  "config": {
+    "font": "IBM Plex Sans",
+    "background": null,
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelColor": "#5f6b7a",
+      "titleColor": "#5f6b7a",
+      "labelFontSize": 11,
+      "titleFontSize": 11,
+      "titleFontWeight": 500,
+      "gridColor": "#e6e3dc",
+      "domainColor": "#c9c4b8",
+      "tickColor": "#c9c4b8"
+    },
+    "legend": {
+      "labelColor": "#1d2433",
+      "titleColor": "#5f6b7a",
+      "labelFontSize": 11,
+      "titleFontSize": 11,
+      "titleFontWeight": 500,
+      "orient": "top",
+      "symbolStrokeWidth": 0
+    },
+    "header": {
+      "labelColor": "#1d2433",
+      "labelFontSize": 12,
+      "labelFontWeight": 600,
+      "titleColor": "#5f6b7a"
+    },
+    "title": {
+      "color": "#1d2433",
+      "font": "Space Grotesk",
+      "fontSize": 15,
+      "fontWeight": 600,
+      "anchor": "start",
+      "subtitleColor": "#5f6b7a",
+      "subtitleFont": "IBM Plex Sans",
+      "subtitleFontSize": 12,
+      "offset": 10
+    },
+    "text": {
+      "font": "IBM Plex Sans",
+      "color": "#1d2433"
+    }
+  }
+}

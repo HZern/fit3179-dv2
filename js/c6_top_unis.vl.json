@@ -1,0 +1,234 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Stacked bar chart of the universities with the most STEM enrolments, split by STEM field, filterable by state.",
+  "data": {
+    "url": "data/universities_stem_2024.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "lat": "number",
+        "lon": "number",
+        "total": "number",
+        "stem": "number",
+        "stem_share": "number",
+        "Natural & physical sciences": "number",
+        "Information technology": "number",
+        "Engineering": "number",
+        "Agriculture & environment": "number"
+      }
+    }
+  },
+  "width": "container",
+  "height": 330,
+  "params": [
+    {
+      "name": "stateSel",
+      "value": "All states",
+      "bind": {
+        "input": "select",
+        "options": [
+          "All states",
+          "New South Wales",
+          "Victoria",
+          "Queensland",
+          "Western Australia",
+          "South Australia",
+          "Tasmania",
+          "Northern Territory",
+          "Australian Capital Territory"
+        ],
+        "name": "Show universities in: "
+      }
+    }
+  ],
+  "transform": [
+    {
+      "filter": "stateSel == 'All states' || datum.state == stateSel"
+    },
+    {
+      "window": [
+        {
+          "op": "row_number",
+          "as": "r"
+        }
+      ],
+      "sort": [
+        {
+          "field": "stem",
+          "order": "descending"
+        }
+      ]
+    },
+    {
+      "filter": "datum.r <= 12"
+    },
+    {
+      "fold": [
+        "Natural & physical sciences",
+        "Information technology",
+        "Engineering",
+        "Agriculture & environment"
+      ],
+      "as": [
+        "field",
+        "n"
+      ]
+    }
+  ],
+  "encoding": {
+    "y": {
+      "field": "short",
+      "type": "nominal",
+      "title": null,
+      "sort": {
+        "field": "r",
+        "op": "min",
+        "order": "ascending"
+      },
+      "axis": {
+        "domain": false,
+        "ticks": false,
+        "labelFontSize": 11.5
+      }
+    },
+    "x": {
+      "field": "n",
+      "type": "quantitative",
+      "stack": "zero",
+      "title": "STEM enrolments, 2024",
+      "axis": {
+        "format": "~s",
+        "tickCount": 5
+      }
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "bar",
+        "height": {
+          "band": 0.72
+        }
+      },
+      "encoding": {
+        "color": {
+          "field": "field",
+          "type": "nominal",
+          "title": null,
+          "scale": {
+            "domain": [
+              "Natural & physical sciences",
+              "Information technology",
+              "Engineering",
+              "Agriculture & environment"
+            ],
+            "range": [
+              "#2a9d8f",
+              "#3d5a80",
+              "#e9a23b",
+              "#7fb069"
+            ]
+          },
+          "legend": {
+            "orient": "top",
+            "columns": 2
+          }
+        },
+        "order": {
+          "field": "field",
+          "sort": "ascending"
+        },
+        "tooltip": [
+          {
+            "field": "university",
+            "title": "University"
+          },
+          {
+            "field": "field",
+            "title": "Field"
+          },
+          {
+            "field": "n",
+            "format": ",",
+            "title": "Enrolments"
+          },
+          {
+            "field": "stem_share",
+            "title": "% of uni in STEM"
+          }
+        ]
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.field == 'Agriculture & environment'"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 4,
+        "fontSize": 10.5,
+        "color": "#5f6b7a"
+      },
+      "encoding": {
+        "x": {
+          "field": "stem",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "stem",
+          "format": ","
+        }
+      }
+    }
+  ],
+  "config": {
+    "font": "IBM Plex Sans",
+    "background": null,
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelColor": "#5f6b7a",
+      "titleColor": "#5f6b7a",
+      "labelFontSize": 11,
+      "titleFontSize": 11,
+      "titleFontWeight": 500,
+      "gridColor": "#e6e3dc",
+      "domainColor": "#c9c4b8",
+      "tickColor": "#c9c4b8"
+    },
+    "legend": {
+      "labelColor": "#1d2433",
+      "titleColor": "#5f6b7a",
+      "labelFontSize": 11,
+      "titleFontSize": 11,
+      "titleFontWeight": 500,
+      "orient": "top",
+      "symbolStrokeWidth": 0
+    },
+    "header": {
+      "labelColor": "#1d2433",
+      "labelFontSize": 12,
+      "labelFontWeight": 600,
+      "titleColor": "#5f6b7a"
+    },
+    "title": {
+      "color": "#1d2433",
+      "font": "Space Grotesk",
+      "fontSize": 15,
+      "fontWeight": 600,
+      "anchor": "start",
+      "subtitleColor": "#5f6b7a",
+      "subtitleFont": "IBM Plex Sans",
+      "subtitleFontSize": 12,
+      "offset": 10
+    },
+    "text": {
+      "font": "IBM Plex Sans",
+      "color": "#1d2433"
+    }
+  }
+}

@@ -1,0 +1,360 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Choropleth of the share of university enrolments in STEM fields by state/territory of the institution, 2024.",
+  "width": "container",
+  "height": 330,
+  "projection": {
+    "type": "conicEqualArea",
+    "parallels": [
+      -18,
+      -36
+    ],
+    "rotate": [
+      -134,
+      0
+    ],
+    "center": [
+      0,
+      -27.5
+    ]
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "data/au_states.topo.json",
+        "format": {
+          "type": "topojson",
+          "feature": "states"
+        }
+      },
+      "transform": [
+        {
+          "lookup": "properties.name",
+          "from": {
+            "data": {
+              "url": "data/state_stem_2024.csv",
+              "format": {
+                "type": "csv",
+                "parse": {
+                  "Natural & physical sciences": "number",
+                  "Information technology": "number",
+                  "Engineering": "number",
+                  "Agriculture & environment": "number",
+                  "stem": "number",
+                  "total": "number",
+                  "stem_share": "number"
+                }
+              }
+            },
+            "key": "state",
+            "fields": [
+              "stem_share",
+              "stem",
+              "total"
+            ]
+          }
+        }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "stroke": "#fff",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "color": {
+          "field": "stem_share",
+          "type": "quantitative",
+          "title": "% of uni enrolments in STEM",
+          "scale": {
+            "type": "threshold",
+            "domain": [
+              22,
+              25,
+              27,
+              29
+            ],
+            "range": [
+              "#d7ebe8",
+              "#a6d2cb",
+              "#6fb3aa",
+              "#36897f",
+              "#0f5e57"
+            ]
+          },
+          "legend": {
+            "orient": "top",
+            "direction": "horizontal",
+            "titleLimit": 400
+          }
+        },
+        "tooltip": [
+          {
+            "field": "properties.name",
+            "title": "State / territory"
+          },
+          {
+            "field": "stem_share",
+            "title": "% in STEM"
+          },
+          {
+            "field": "stem",
+            "format": ",",
+            "title": "STEM enrolments"
+          },
+          {
+            "field": "total",
+            "format": ",",
+            "title": "All enrolments"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "dx": 0,
+        "dy": 0,
+        "fontSize": 11,
+        "fontWeight": 600,
+        "color": "#fff",
+        "text": "WA 27%"
+      },
+      "encoding": {
+        "longitude": {
+          "datum": 121.5
+        },
+        "latitude": {
+          "datum": -26
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "dx": 0,
+        "dy": 0,
+        "fontSize": 11,
+        "fontWeight": 600,
+        "color": "#1d2433",
+        "text": "NT 22%"
+      },
+      "encoding": {
+        "longitude": {
+          "datum": 133.4
+        },
+        "latitude": {
+          "datum": -19.5
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "dx": 0,
+        "dy": 0,
+        "fontSize": 11,
+        "fontWeight": 600,
+        "color": "#1d2433",
+        "text": "SA 22%"
+      },
+      "encoding": {
+        "longitude": {
+          "datum": 135.5
+        },
+        "latitude": {
+          "datum": -30
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "dx": 0,
+        "dy": 0,
+        "fontSize": 11,
+        "fontWeight": 600,
+        "color": "#1d2433",
+        "text": "QLD 26%"
+      },
+      "encoding": {
+        "longitude": {
+          "datum": 144.5
+        },
+        "latitude": {
+          "datum": -22.5
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "dx": 0,
+        "dy": 0,
+        "fontSize": 11,
+        "fontWeight": 600,
+        "color": "#fff",
+        "text": "NSW 27%"
+      },
+      "encoding": {
+        "longitude": {
+          "datum": 146.5
+        },
+        "latitude": {
+          "datum": -32.3
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "dx": 0,
+        "dy": 0,
+        "fontSize": 11,
+        "fontWeight": 600,
+        "color": "#fff",
+        "text": "VIC 29%"
+      },
+      "encoding": {
+        "longitude": {
+          "datum": 144.3
+        },
+        "latitude": {
+          "datum": -36.9
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "dx": 0,
+        "dy": 0,
+        "fontSize": 11,
+        "fontWeight": 600,
+        "color": "#1d2433",
+        "text": "TAS 22%"
+      },
+      "encoding": {
+        "longitude": {
+          "datum": 146.6
+        },
+        "latitude": {
+          "datum": -42.1
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 12,
+        "dy": 0,
+        "fontSize": 11,
+        "fontWeight": 600,
+        "color": "#1d2433",
+        "text": "ACT 26%"
+      },
+      "encoding": {
+        "longitude": {
+          "datum": 150.4
+        },
+        "latitude": {
+          "datum": -35.35
+        }
+      }
+    }
+  ],
+  "config": {
+    "font": "IBM Plex Sans",
+    "background": null,
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelColor": "#5f6b7a",
+      "titleColor": "#5f6b7a",
+      "labelFontSize": 11,
+      "titleFontSize": 11,
+      "titleFontWeight": 500,
+      "gridColor": "#e6e3dc",
+      "domainColor": "#c9c4b8",
+      "tickColor": "#c9c4b8"
+    },
+    "legend": {
+      "labelColor": "#1d2433",
+      "titleColor": "#5f6b7a",
+      "labelFontSize": 11,
+      "titleFontSize": 11,
+      "titleFontWeight": 500,
+      "orient": "top",
+      "symbolStrokeWidth": 0
+    },
+    "header": {
+      "labelColor": "#1d2433",
+      "labelFontSize": 12,
+      "labelFontWeight": 600,
+      "titleColor": "#5f6b7a"
+    },
+    "title": {
+      "color": "#1d2433",
+      "font": "Space Grotesk",
+      "fontSize": 15,
+      "fontWeight": 600,
+      "anchor": "start",
+      "subtitleColor": "#5f6b7a",
+      "subtitleFont": "IBM Plex Sans",
+      "subtitleFontSize": 12,
+      "offset": 10
+    },
+    "text": {
+      "font": "IBM Plex Sans",
+      "color": "#1d2433"
+    }
+  }
+}

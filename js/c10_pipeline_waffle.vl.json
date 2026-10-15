@@ -1,0 +1,148 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Waffle charts showing the share of women at each stage of the STEM pipeline (out of every 100 people).",
+  "data": {
+    "url": "data/pipeline_waffle.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "order": "number",
+        "pct": "number",
+        "year": "number",
+        "i": "number",
+        "col": "number",
+        "row": "number"
+      }
+    }
+  },
+  "transform": [
+    {
+      "calculate": "datum.stage + '|' + datum.pct + '% women (' + datum.year + ')'",
+      "as": "lbl"
+    }
+  ],
+  "facet": {
+    "field": "lbl",
+    "type": "nominal",
+    "title": null,
+    "sort": {
+      "field": "order"
+    },
+    "header": {
+      "labelAnchor": "start",
+      "labelFontSize": 11.5,
+      "labelLimit": 0,
+      "labelPadding": 6,
+      "labelExpr": "split(datum.value, '|')",
+      "labelLineHeight": 16
+    }
+  },
+  "columns": 2,
+  "spec": {
+    "width": 112,
+    "height": 112,
+    "layer": [
+      {
+        "mark": {
+          "type": "rect",
+          "cornerRadius": 2,
+          "stroke": "#fbfaf7",
+          "strokeWidth": 1.6
+        },
+        "encoding": {
+          "x": {
+            "field": "col",
+            "type": "ordinal",
+            "axis": null
+          },
+          "y": {
+            "field": "row",
+            "type": "ordinal",
+            "axis": null,
+            "sort": "descending"
+          },
+          "color": {
+            "field": "who",
+            "type": "nominal",
+            "title": "Of every 100 people:",
+            "scale": {
+              "domain": [
+                "Women",
+                "Men"
+              ],
+              "range": [
+                "#c8553d",
+                "#d8d4cb"
+              ]
+            }
+          },
+          "tooltip": [
+            {
+              "field": "stage",
+              "title": "Stage"
+            },
+            {
+              "field": "pct",
+              "title": "% women"
+            },
+            {
+              "field": "year",
+              "title": "Year"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "spacing": {
+    "column": 80,
+    "row": 22
+  },
+  "config": {
+    "font": "IBM Plex Sans",
+    "background": null,
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelColor": "#5f6b7a",
+      "titleColor": "#5f6b7a",
+      "labelFontSize": 11,
+      "titleFontSize": 11,
+      "titleFontWeight": 500,
+      "gridColor": "#e6e3dc",
+      "domainColor": "#c9c4b8",
+      "tickColor": "#c9c4b8"
+    },
+    "legend": {
+      "labelColor": "#1d2433",
+      "titleColor": "#5f6b7a",
+      "labelFontSize": 11,
+      "titleFontSize": 11,
+      "titleFontWeight": 500,
+      "orient": "top",
+      "symbolStrokeWidth": 0
+    },
+    "header": {
+      "labelColor": "#1d2433",
+      "labelFontSize": 12,
+      "labelFontWeight": 600,
+      "titleColor": "#5f6b7a"
+    },
+    "title": {
+      "color": "#1d2433",
+      "font": "Space Grotesk",
+      "fontSize": 15,
+      "fontWeight": 600,
+      "anchor": "start",
+      "subtitleColor": "#5f6b7a",
+      "subtitleFont": "IBM Plex Sans",
+      "subtitleFontSize": 12,
+      "offset": 10
+    },
+    "text": {
+      "font": "IBM Plex Sans",
+      "color": "#1d2433"
+    }
+  }
+}

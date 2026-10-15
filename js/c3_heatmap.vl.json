@@ -1,0 +1,217 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Heatmap of the % change in university enrolments since 2015 by field and year.",
+  "data": {
+    "url": "data/enrolments_by_field.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "year": "number",
+        "enrolments": "number",
+        "change_pct": "number",
+        "rank": "number"
+      }
+    }
+  },
+  "transform": [
+    {
+      "filter": "datum.year > 2015"
+    },
+    {
+      "joinaggregate": [
+        {
+          "op": "max",
+          "field": "year",
+          "as": "maxy"
+        }
+      ]
+    },
+    {
+      "calculate": "(datum.change_pct>0?'+':'') + format(datum.change_pct, '.0f') + '%'",
+      "as": "lbl"
+    },
+    {
+      "calculate": "datum.year == 2024 ? datum.change_pct : -999",
+      "as": "c24"
+    },
+    {
+      "joinaggregate": [
+        {
+          "op": "max",
+          "field": "c24",
+          "as": "s24"
+        }
+      ],
+      "groupby": [
+        "field"
+      ]
+    }
+  ],
+  "width": "container",
+  "height": 340,
+  "encoding": {
+    "x": {
+      "field": "year",
+      "type": "ordinal",
+      "title": null,
+      "axis": {
+        "labelAngle": 0,
+        "domain": false,
+        "ticks": false,
+        "orient": "top"
+      }
+    },
+    "y": {
+      "field": "field",
+      "type": "nominal",
+      "title": null,
+      "sort": [
+        "Information technology",
+        "Health",
+        "Architecture & building",
+        "Education",
+        "Natural & physical sciences",
+        "Engineering",
+        "Society & culture",
+        "Creative arts",
+        "Agriculture & environment",
+        "Management & commerce"
+      ],
+      "axis": {
+        "domain": false,
+        "ticks": false,
+        "labelFontWeight": {
+          "expr": "indexof(['Information technology','Natural & physical sciences','Engineering','Agriculture & environment'], datum.value) >= 0 ? 700 : 400"
+        }
+      }
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "rect",
+        "stroke": "#fbfaf7",
+        "strokeWidth": 2,
+        "cornerRadius": 2
+      },
+      "encoding": {
+        "color": {
+          "field": "change_pct",
+          "type": "quantitative",
+          "title": "Change in enrolments since 2015 (%)",
+          "scale": {
+            "type": "symlog",
+            "scheme": "brownbluegreen",
+            "domainMid": 0,
+            "domain": [
+              -15,
+              175
+            ]
+          },
+          "legend": {
+            "orient": "top",
+            "gradientLength": 240,
+            "titleLimit": 400,
+            "values": [
+              -10,
+              0,
+              50,
+              170
+            ]
+          }
+        },
+        "tooltip": [
+          {
+            "field": "field",
+            "title": "Field"
+          },
+          {
+            "field": "year",
+            "title": "Year"
+          },
+          {
+            "field": "enrolments",
+            "format": ",",
+            "title": "Enrolments"
+          },
+          {
+            "field": "change_pct",
+            "format": "+.1f",
+            "title": "% change since 2015"
+          }
+        ]
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.year == datum.maxy"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "fontSize": 10.5,
+        "fontWeight": 600
+      },
+      "encoding": {
+        "text": {
+          "field": "lbl"
+        },
+        "color": {
+          "condition": {
+            "test": "datum.change_pct > 60",
+            "value": "#fff"
+          },
+          "value": "#1d2433"
+        }
+      }
+    }
+  ],
+  "config": {
+    "font": "IBM Plex Sans",
+    "background": null,
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelColor": "#5f6b7a",
+      "titleColor": "#5f6b7a",
+      "labelFontSize": 11,
+      "titleFontSize": 11,
+      "titleFontWeight": 500,
+      "gridColor": "#e6e3dc",
+      "domainColor": "#c9c4b8",
+      "tickColor": "#c9c4b8"
+    },
+    "legend": {
+      "labelColor": "#1d2433",
+      "titleColor": "#5f6b7a",
+      "labelFontSize": 11,
+      "titleFontSize": 11,
+      "titleFontWeight": 500,
+      "orient": "top",
+      "symbolStrokeWidth": 0
+    },
+    "header": {
+      "labelColor": "#1d2433",
+      "labelFontSize": 12,
+      "labelFontWeight": 600,
+      "titleColor": "#5f6b7a"
+    },
+    "title": {
+      "color": "#1d2433",
+      "font": "Space Grotesk",
+      "fontSize": 15,
+      "fontWeight": 600,
+      "anchor": "start",
+      "subtitleColor": "#5f6b7a",
+      "subtitleFont": "IBM Plex Sans",
+      "subtitleFontSize": 12,
+      "offset": 10
+    },
+    "text": {
+      "font": "IBM Plex Sans",
+      "color": "#1d2433"
+    }
+  }
+}

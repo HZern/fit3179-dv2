@@ -1,0 +1,161 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Small multiple line charts of university course completions in each STEM field, domestic vs international students, 2015-2024.",
+  "data": {
+    "url": "data/stem_completions.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "year": "number",
+        "completions": "number"
+      }
+    }
+  },
+  "facet": {
+    "field": "field",
+    "type": "nominal",
+    "title": null,
+    "sort": [
+      "Natural & physical sciences",
+      "Information technology",
+      "Engineering",
+      "Agriculture & environment"
+    ],
+    "header": {
+      "labelAnchor": "start",
+      "labelPadding": 6
+    }
+  },
+  "columns": 4,
+  "spec": {
+    "width": 170,
+    "height": 170,
+    "encoding": {
+      "x": {
+        "field": "year",
+        "type": "quantitative",
+        "title": null,
+        "axis": {
+          "values": [
+            2015,
+            2020,
+            2024
+          ],
+          "format": "d",
+          "grid": false
+        }
+      },
+      "y": {
+        "field": "completions",
+        "type": "quantitative",
+        "title": "Graduates per year",
+        "axis": {
+          "format": "~s",
+          "tickCount": 4
+        }
+      },
+      "color": {
+        "field": "student",
+        "type": "nominal",
+        "title": null,
+        "scale": {
+          "domain": [
+            "Domestic",
+            "International"
+          ],
+          "range": [
+            "#3d5a80",
+            "#c8553d"
+          ]
+        }
+      }
+    },
+    "layer": [
+      {
+        "mark": {
+          "type": "line",
+          "strokeWidth": 2.4
+        }
+      },
+      {
+        "mark": {
+          "type": "circle",
+          "size": 26
+        },
+        "encoding": {
+          "tooltip": [
+            {
+              "field": "field",
+              "title": "Field"
+            },
+            {
+              "field": "student",
+              "title": "Students"
+            },
+            {
+              "field": "year",
+              "title": "Year"
+            },
+            {
+              "field": "completions",
+              "format": ",",
+              "title": "Graduates"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "resolve": {
+    "scale": {
+      "y": "shared"
+    }
+  },
+  "config": {
+    "font": "IBM Plex Sans",
+    "background": null,
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelColor": "#5f6b7a",
+      "titleColor": "#5f6b7a",
+      "labelFontSize": 11,
+      "titleFontSize": 11,
+      "titleFontWeight": 500,
+      "gridColor": "#e6e3dc",
+      "domainColor": "#c9c4b8",
+      "tickColor": "#c9c4b8"
+    },
+    "legend": {
+      "labelColor": "#1d2433",
+      "titleColor": "#5f6b7a",
+      "labelFontSize": 11,
+      "titleFontSize": 11,
+      "titleFontWeight": 500,
+      "orient": "top",
+      "symbolStrokeWidth": 0
+    },
+    "header": {
+      "labelColor": "#1d2433",
+      "labelFontSize": 12,
+      "labelFontWeight": 600,
+      "titleColor": "#5f6b7a"
+    },
+    "title": {
+      "color": "#1d2433",
+      "font": "Space Grotesk",
+      "fontSize": 15,
+      "fontWeight": 600,
+      "anchor": "start",
+      "subtitleColor": "#5f6b7a",
+      "subtitleFont": "IBM Plex Sans",
+      "subtitleFontSize": 12,
+      "offset": 10
+    },
+    "text": {
+      "font": "IBM Plex Sans",
+      "color": "#1d2433"
+    }
+  }
+}

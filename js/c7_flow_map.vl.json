@@ -1,0 +1,1070 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Flow map of international higher education students in Australia from the 15 largest source countries, 2024.",
+  "width": "container",
+  "height": 430,
+  "projection": {
+    "type": "equalEarth",
+    "rotate": [
+      -100,
+      0
+    ],
+    "fit": {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            40,
+            38
+          ],
+          [
+            158,
+            -44
+          ]
+        ]
+      }
+    }
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "https://cdn.jsdelivr.net/npm/world-atlas@2.0.2/countries-50m.json",
+        "format": {
+          "type": "topojson",
+          "feature": "countries"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#e7e3da",
+        "stroke": "#fff",
+        "strokeWidth": 0.5,
+        "clip": true
+      }
+    },
+    {
+      "data": {
+        "url": "https://cdn.jsdelivr.net/npm/world-atlas@2.0.2/countries-50m.json",
+        "format": {
+          "type": "topojson",
+          "feature": "countries"
+        }
+      },
+      "transform": [
+        {
+          "filter": "datum.properties.name == 'Australia' || datum.properties.name == 'Malaysia'"
+        }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "stroke": "#fff",
+        "strokeWidth": 0.5,
+        "clip": true
+      },
+      "encoding": {
+        "fill": {
+          "condition": {
+            "test": "datum.properties.name == 'Malaysia'",
+            "value": "#f0cfc4"
+          },
+          "value": "#cfe5e1"
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "data/intl_students_2024.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "students": "number",
+            "lon": "number",
+            "lat": "number",
+            "dest_lon": "number",
+            "dest_lat": "number"
+          }
+        }
+      },
+      "layer": [
+        {
+          "params": [
+            {
+              "name": "hl",
+              "select": {
+                "type": "point",
+                "on": "pointerover",
+                "clear": "pointerout",
+                "fields": [
+                  "country"
+                ]
+              }
+            }
+          ],
+          "mark": {
+            "type": "rule",
+            "strokeCap": "round"
+          },
+          "encoding": {
+            "longitude": {
+              "field": "lon",
+              "type": "quantitative"
+            },
+            "latitude": {
+              "field": "lat",
+              "type": "quantitative"
+            },
+            "longitude2": {
+              "field": "dest_lon"
+            },
+            "latitude2": {
+              "field": "dest_lat"
+            },
+            "strokeWidth": {
+              "field": "students",
+              "type": "quantitative",
+              "scale": {
+                "range": [
+                  1,
+                  16
+                ],
+                "zero": true
+              },
+              "title": "International uni students, 2024",
+              "legend": {
+                "orient": "top",
+                "values": [
+                  10000,
+                  50000,
+                  150000
+                ],
+                "labelExpr": "format(datum.value, ',')",
+                "titleLimit": 400
+              }
+            },
+            "color": {
+              "field": "highlight",
+              "type": "nominal",
+              "scale": {
+                "domain": [
+                  "Malaysia",
+                  "Other"
+                ],
+                "range": [
+                  "#c8553d",
+                  "#2a8c83"
+                ]
+              },
+              "legend": null
+            },
+            "opacity": {
+              "condition": {
+                "param": "hl",
+                "empty": false,
+                "value": 0.95
+              },
+              "value": 0.45
+            },
+            "tooltip": [
+              {
+                "field": "country",
+                "title": "Home country"
+              },
+              {
+                "field": "students",
+                "format": ",",
+                "title": "Students enrolled with Australian unis"
+              }
+            ]
+          }
+        },
+        {
+          "mark": {
+            "type": "circle",
+            "size": 50,
+            "stroke": "#fff",
+            "strokeWidth": 1
+          },
+          "encoding": {
+            "longitude": {
+              "field": "lon",
+              "type": "quantitative"
+            },
+            "latitude": {
+              "field": "lat",
+              "type": "quantitative"
+            },
+            "color": {
+              "field": "highlight",
+              "type": "nominal",
+              "scale": {
+                "domain": [
+                  "Malaysia",
+                  "Other"
+                ],
+                "range": [
+                  "#c8553d",
+                  "#2a8c83"
+                ]
+              },
+              "legend": null
+            },
+            "tooltip": [
+              {
+                "field": "country",
+                "title": "Home country"
+              },
+              {
+                "field": "students",
+                "format": ",",
+                "title": "Students"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 8,
+        "dy": 0,
+        "fontSize": 10.5,
+        "fontWeight": 600,
+        "color": "#1d2433",
+        "text": "China 166.5k",
+        "stroke": "#fbfaf7",
+        "strokeWidth": 3,
+        "strokeJoin": "round"
+      },
+      "encoding": {
+        "longitude": {
+          "datum": 103.38
+        },
+        "latitude": {
+          "datum": 36.69
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 8,
+        "dy": 0,
+        "fontSize": 10.5,
+        "fontWeight": 600,
+        "color": "#1d2433",
+        "text": "China 166.5k"
+      },
+      "encoding": {
+        "longitude": {
+          "datum": 103.38
+        },
+        "latitude": {
+          "datum": 36.69
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": -8,
+        "dy": 4,
+        "fontSize": 10.5,
+        "fontWeight": 600,
+        "color": "#1d2433",
+        "text": "India 89.5k",
+        "stroke": "#fbfaf7",
+        "strokeWidth": 3,
+        "strokeJoin": "round"
+      },
+      "encoding": {
+        "longitude": {
+          "datum": 79.57
+        },
+        "latitude": {
+          "datum": 22.79
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": -8,
+        "dy": 4,
+        "fontSize": 10.5,
+        "fontWeight": 600,
+        "color": "#1d2433",
+        "text": "India 89.5k"
+      },
+      "encoding": {
+        "longitude": {
+          "datum": 79.57
+        },
+        "latitude": {
+          "datum": 22.79
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "dx": 0,
+        "dy": -11,
+        "fontSize": 10.5,
+        "fontWeight": 600,
+        "color": "#1d2433",
+        "text": "Nepal 43.2k",
+        "stroke": "#fbfaf7",
+        "strokeWidth": 3,
+        "strokeJoin": "round"
+      },
+      "encoding": {
+        "longitude": {
+          "datum": 83.96
+        },
+        "latitude": {
+          "datum": 28.25
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "dx": 0,
+        "dy": -11,
+        "fontSize": 10.5,
+        "fontWeight": 600,
+        "color": "#1d2433",
+        "text": "Nepal 43.2k"
+      },
+      "encoding": {
+        "longitude": {
+          "datum": 83.96
+        },
+        "latitude": {
+          "datum": 28.25
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 8,
+        "dy": 0,
+        "fontSize": 10.5,
+        "fontWeight": 600,
+        "color": "#1d2433",
+        "text": "Vietnam 39.5k",
+        "stroke": "#fbfaf7",
+        "strokeWidth": 3,
+        "strokeJoin": "round"
+      },
+      "encoding": {
+        "longitude": {
+          "datum": 106.35
+        },
+        "latitude": {
+          "datum": 16.54
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 8,
+        "dy": 0,
+        "fontSize": 10.5,
+        "fontWeight": 600,
+        "color": "#1d2433",
+        "text": "Vietnam 39.5k"
+      },
+      "encoding": {
+        "longitude": {
+          "datum": 106.35
+        },
+        "latitude": {
+          "datum": 16.54
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": -8,
+        "dy": 9,
+        "fontSize": 10.5,
+        "fontWeight": 600,
+        "color": "#1d2433",
+        "text": "Singapore 24.1k",
+        "stroke": "#fbfaf7",
+        "strokeWidth": 3,
+        "strokeJoin": "round"
+      },
+      "encoding": {
+        "longitude": {
+          "datum": 103.82
+        },
+        "latitude": {
+          "datum": 1.35
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": -8,
+        "dy": 9,
+        "fontSize": 10.5,
+        "fontWeight": 600,
+        "color": "#1d2433",
+        "text": "Singapore 24.1k"
+      },
+      "encoding": {
+        "longitude": {
+          "datum": 103.82
+        },
+        "latitude": {
+          "datum": 1.35
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 8,
+        "dy": -5,
+        "fontSize": 11.5,
+        "fontWeight": 600,
+        "color": "#c8553d",
+        "text": "Malaysia 23.6k",
+        "stroke": "#fbfaf7",
+        "strokeWidth": 3,
+        "strokeJoin": "round"
+      },
+      "encoding": {
+        "longitude": {
+          "datum": 101.69
+        },
+        "latitude": {
+          "datum": 3.14
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 8,
+        "dy": -5,
+        "fontSize": 11.5,
+        "fontWeight": 600,
+        "color": "#c8553d",
+        "text": "Malaysia 23.6k"
+      },
+      "encoding": {
+        "longitude": {
+          "datum": 101.69
+        },
+        "latitude": {
+          "datum": 3.14
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": -8,
+        "dy": 0,
+        "fontSize": 10.5,
+        "fontWeight": 600,
+        "color": "#1d2433",
+        "text": "Sri Lanka 21.4k",
+        "stroke": "#fbfaf7",
+        "strokeWidth": 3,
+        "strokeJoin": "round"
+      },
+      "encoding": {
+        "longitude": {
+          "datum": 80.7
+        },
+        "latitude": {
+          "datum": 7.63
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": -8,
+        "dy": 0,
+        "fontSize": 10.5,
+        "fontWeight": 600,
+        "color": "#1d2433",
+        "text": "Sri Lanka 21.4k"
+      },
+      "encoding": {
+        "longitude": {
+          "datum": 80.7
+        },
+        "latitude": {
+          "datum": 7.63
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 8,
+        "dy": 8,
+        "fontSize": 10.5,
+        "fontWeight": 600,
+        "color": "#1d2433",
+        "text": "Bangladesh 16.4k",
+        "stroke": "#fbfaf7",
+        "strokeWidth": 3,
+        "strokeJoin": "round"
+      },
+      "encoding": {
+        "longitude": {
+          "datum": 90.22
+        },
+        "latitude": {
+          "datum": 23.86
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 8,
+        "dy": 8,
+        "fontSize": 10.5,
+        "fontWeight": 600,
+        "color": "#1d2433",
+        "text": "Bangladesh 16.4k"
+      },
+      "encoding": {
+        "longitude": {
+          "datum": 90.22
+        },
+        "latitude": {
+          "datum": 23.86
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": -8,
+        "dy": 0,
+        "fontSize": 10.5,
+        "fontWeight": 600,
+        "color": "#1d2433",
+        "text": "Indonesia 15.5k",
+        "stroke": "#fbfaf7",
+        "strokeWidth": 3,
+        "strokeJoin": "round"
+      },
+      "encoding": {
+        "longitude": {
+          "datum": 106.85
+        },
+        "latitude": {
+          "datum": -6.21
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": -8,
+        "dy": 0,
+        "fontSize": 10.5,
+        "fontWeight": 600,
+        "color": "#1d2433",
+        "text": "Indonesia 15.5k"
+      },
+      "encoding": {
+        "longitude": {
+          "datum": 106.85
+        },
+        "latitude": {
+          "datum": -6.21
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": -8,
+        "dy": -2,
+        "fontSize": 10.5,
+        "fontWeight": 600,
+        "color": "#1d2433",
+        "text": "Pakistan 12.9k",
+        "stroke": "#fbfaf7",
+        "strokeWidth": 3,
+        "strokeJoin": "round"
+      },
+      "encoding": {
+        "longitude": {
+          "datum": 69.16
+        },
+        "latitude": {
+          "datum": 29.88
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": -8,
+        "dy": -2,
+        "fontSize": 10.5,
+        "fontWeight": 600,
+        "color": "#1d2433",
+        "text": "Pakistan 12.9k"
+      },
+      "encoding": {
+        "longitude": {
+          "datum": 69.16
+        },
+        "latitude": {
+          "datum": 29.88
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 8,
+        "dy": -3,
+        "fontSize": 10.5,
+        "fontWeight": 600,
+        "color": "#1d2433",
+        "text": "Bhutan 12.1k",
+        "stroke": "#fbfaf7",
+        "strokeWidth": 3,
+        "strokeJoin": "round"
+      },
+      "encoding": {
+        "longitude": {
+          "datum": 90.41
+        },
+        "latitude": {
+          "datum": 27.4
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 8,
+        "dy": -3,
+        "fontSize": 10.5,
+        "fontWeight": 600,
+        "color": "#1d2433",
+        "text": "Bhutan 12.1k"
+      },
+      "encoding": {
+        "longitude": {
+          "datum": 90.41
+        },
+        "latitude": {
+          "datum": 27.4
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 8,
+        "dy": 0,
+        "fontSize": 10.5,
+        "fontWeight": 600,
+        "color": "#1d2433",
+        "text": "Hong Kong 11.6k",
+        "stroke": "#fbfaf7",
+        "strokeWidth": 3,
+        "strokeJoin": "round"
+      },
+      "encoding": {
+        "longitude": {
+          "datum": 114.17
+        },
+        "latitude": {
+          "datum": 22.32
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 8,
+        "dy": 0,
+        "fontSize": 10.5,
+        "fontWeight": 600,
+        "color": "#1d2433",
+        "text": "Hong Kong 11.6k"
+      },
+      "encoding": {
+        "longitude": {
+          "datum": 114.17
+        },
+        "latitude": {
+          "datum": 22.32
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 8,
+        "dy": 0,
+        "fontSize": 10.5,
+        "fontWeight": 600,
+        "color": "#1d2433",
+        "text": "Philippines 8.2k",
+        "stroke": "#fbfaf7",
+        "strokeWidth": 3,
+        "strokeJoin": "round"
+      },
+      "encoding": {
+        "longitude": {
+          "datum": 122.97
+        },
+        "latitude": {
+          "datum": 11.74
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 8,
+        "dy": 0,
+        "fontSize": 10.5,
+        "fontWeight": 600,
+        "color": "#1d2433",
+        "text": "Philippines 8.2k"
+      },
+      "encoding": {
+        "longitude": {
+          "datum": 122.97
+        },
+        "latitude": {
+          "datum": 11.74
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": -8,
+        "dy": 0,
+        "fontSize": 10.5,
+        "fontWeight": 600,
+        "color": "#1d2433",
+        "text": "United Arab Emirates 8.2k",
+        "stroke": "#fbfaf7",
+        "strokeWidth": 3,
+        "strokeJoin": "round"
+      },
+      "encoding": {
+        "longitude": {
+          "datum": 54.28
+        },
+        "latitude": {
+          "datum": 23.9
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": -8,
+        "dy": 0,
+        "fontSize": 10.5,
+        "fontWeight": 600,
+        "color": "#1d2433",
+        "text": "United Arab Emirates 8.2k"
+      },
+      "encoding": {
+        "longitude": {
+          "datum": 54.28
+        },
+        "latitude": {
+          "datum": 23.9
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": -8,
+        "dy": 0,
+        "fontSize": 10.5,
+        "fontWeight": 600,
+        "color": "#1d2433",
+        "text": "Kenya 7.3k",
+        "stroke": "#fbfaf7",
+        "strokeWidth": 3,
+        "strokeJoin": "round"
+      },
+      "encoding": {
+        "longitude": {
+          "datum": 37.8
+        },
+        "latitude": {
+          "datum": 0.6
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": -8,
+        "dy": 0,
+        "fontSize": 10.5,
+        "fontWeight": 600,
+        "color": "#1d2433",
+        "text": "Kenya 7.3k"
+      },
+      "encoding": {
+        "longitude": {
+          "datum": 37.8
+        },
+        "latitude": {
+          "datum": 0.6
+        }
+      }
+    }
+  ],
+  "config": {
+    "font": "IBM Plex Sans",
+    "background": null,
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelColor": "#5f6b7a",
+      "titleColor": "#5f6b7a",
+      "labelFontSize": 11,
+      "titleFontSize": 11,
+      "titleFontWeight": 500,
+      "gridColor": "#e6e3dc",
+      "domainColor": "#c9c4b8",
+      "tickColor": "#c9c4b8"
+    },
+    "legend": {
+      "labelColor": "#1d2433",
+      "titleColor": "#5f6b7a",
+      "labelFontSize": 11,
+      "titleFontSize": 11,
+      "titleFontWeight": 500,
+      "orient": "top",
+      "symbolStrokeWidth": 0
+    },
+    "header": {
+      "labelColor": "#1d2433",
+      "labelFontSize": 12,
+      "labelFontWeight": 600,
+      "titleColor": "#5f6b7a"
+    },
+    "title": {
+      "color": "#1d2433",
+      "font": "Space Grotesk",
+      "fontSize": 15,
+      "fontWeight": 600,
+      "anchor": "start",
+      "subtitleColor": "#5f6b7a",
+      "subtitleFont": "IBM Plex Sans",
+      "subtitleFontSize": 12,
+      "offset": 10
+    },
+    "text": {
+      "font": "IBM Plex Sans",
+      "color": "#1d2433"
+    }
+  }
+}
