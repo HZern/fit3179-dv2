@@ -99,54 +99,90 @@
   },
   "layer": [
     {
-      "mark": {
-        "type": "line",
-        "strokeWidth": 3,
-        "interpolate": "monotone"
-      },
-      "encoding": {
-        "detail": {
-          "field": "field"
-        }
-      }
-    },
-    {
-      "mark": {
-        "type": "circle",
-        "size": 70,
-        "opacity": 1
-      },
-      "encoding": {
-        "tooltip": [
-          {
-            "field": "field",
-            "title": "Field"
-          },
-          {
-            "field": "year",
-            "title": "Year"
-          },
-          {
-            "field": "rank",
-            "title": "Rank"
-          },
-          {
-            "field": "enrolments",
-            "format": ",",
-            "title": "Enrolments"
-          }
-        ]
-      },
-      "params": [
+      "layer": [
         {
-          "name": "pick",
-          "select": {
-            "type": "point",
-            "fields": [
-              "field"
-            ],
-            "on": "pointerover",
-            "clear": "pointerout"
+          "mark": {
+            "type": "line",
+            "strokeWidth": 3,
+            "interpolate": "monotone"
+          },
+          "encoding": {
+            "detail": {
+              "field": "field"
+            }
+          }
+        },
+        {
+          "params": [
+            {
+              "name": "pick",
+              "select": {
+                "type": "point",
+                "fields": [
+                  "field"
+                ],
+                "on": "pointerover",
+                "clear": "pointerout"
+              }
+            }
+          ],
+          "mark": {
+            "type": "circle",
+            "size": 70,
+            "opacity": 1
+          },
+          "encoding": {
+            "tooltip": [
+              {
+                "field": "field",
+                "title": "Field"
+              },
+              {
+                "field": "year",
+                "title": "Year"
+              },
+              {
+                "field": "rank",
+                "title": "Rank"
+              },
+              {
+                "field": "enrolments",
+                "format": ",",
+                "title": "Enrolments"
+              }
+            ]
+          }
+        },
+        {
+          "data": {
+            "values": [
+              {
+                "year": 2023,
+                "rank": 3.5,
+                "t": "IT: 8th → 4th"
+              }
+            ]
+          },
+          "mark": {
+            "type": "text",
+            "align": "right",
+            "dy": 0,
+            "dx": 4,
+            "fontWeight": 600,
+            "fontSize": 11,
+            "fontStyle": "italic",
+            "color": "#3d5a80"
+          },
+          "encoding": {
+            "text": {
+              "field": "t"
+            },
+            "color": {
+              "value": "#3d5a80"
+            },
+            "opacity": {
+              "value": 1
+            }
           }
         }
       ]
@@ -158,50 +194,62 @@
         }
       ],
       "mark": {
-        "type": "text",
-        "align": "left",
-        "dx": 10,
-        "fontSize": 11
+        "type": "point",
+        "opacity": 0
       },
       "encoding": {
-        "text": {
-          "field": "field"
-        }
-      }
-    },
-    {
-      "data": {
-        "values": [
-          {
-            "year": 2023,
-            "rank": 3.5,
-            "t": "IT: 8th → 4th"
+        "y": {
+          "field": "rank",
+          "type": "quantitative",
+          "title": null,
+          "scale": {
+            "domain": [
+              0.6,
+              10.4
+            ],
+            "reverse": true,
+            "nice": false
+          },
+          "axis": {
+            "orient": "right",
+            "domain": false,
+            "ticks": false,
+            "grid": false,
+            "labelPadding": 8,
+            "values": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10
+            ],
+            "labelFontSize": 11.5,
+            "labelLimit": 220,
+            "labelExpr": "[\"Management & commerce\", \"Society & culture\", \"Health\", \"Information technology\", \"Education\", \"Natural & physical sciences\", \"Engineering\", \"Creative arts\", \"Architecture & building\", \"Agriculture & environment\"][datum.value - 1]",
+            "labelColor": {
+              "expr": "datum.value == 4 ? '#3d5a80' : datum.value == 6 ? '#2a9d8f' : datum.value == 7 ? '#c98a22' : datum.value == 10 ? '#5f9447' : '#a3aab4'"
+            },
+            "labelFontWeight": {
+              "expr": "indexof([4, 6, 7, 10], datum.value) >= 0 ? 600 : 400"
+            }
           }
-        ]
-      },
-      "mark": {
-        "type": "text",
-        "align": "right",
-        "dy": 0,
-        "dx": 4,
-        "fontWeight": 600,
-        "fontSize": 11,
-        "fontStyle": "italic",
-        "color": "#3d5a80"
-      },
-      "encoding": {
-        "text": {
-          "field": "t"
-        },
-        "color": {
-          "value": "#3d5a80"
         },
         "opacity": {
-          "value": 1
+          "value": 0
         }
       }
     }
   ],
+  "resolve": {
+    "scale": {
+      "y": "independent"
+    }
+  },
   "config": {
     "font": "IBM Plex Sans",
     "background": null,
@@ -247,12 +295,6 @@
     "text": {
       "font": "IBM Plex Sans",
       "color": "#1d2433"
-    },
-    "padding": {
-      "right": 165,
-      "left": 5,
-      "top": 5,
-      "bottom": 5
     }
   }
 }

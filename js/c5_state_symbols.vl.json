@@ -1,0 +1,625 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Proportional symbol map of STEM higher education enrolments in each Australian state and territory, 2024.",
+  "width": "container",
+  "height": 360,
+  "projection": {
+    "type": "conicEqualArea",
+    "parallels": [
+      -18,
+      -36
+    ],
+    "rotate": [
+      -134,
+      0
+    ],
+    "center": [
+      0,
+      -27.5
+    ]
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "data/au_states.topo.json",
+        "format": {
+          "type": "topojson",
+          "feature": "states"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#e7e3da",
+        "stroke": "#fff",
+        "strokeWidth": 1
+      }
+    },
+    {
+      "data": {
+        "url": "data/state_stem_2024.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "Natural & physical sciences": "number",
+            "Information technology": "number",
+            "Engineering": "number",
+            "Agriculture & environment": "number",
+            "stem": "number",
+            "total": "number",
+            "stem_share": "number",
+            "unis": "number",
+            "top_uni_stem": "number",
+            "lat": "number",
+            "lon": "number"
+          }
+        }
+      },
+      "mark": {
+        "type": "circle",
+        "stroke": "#fff",
+        "strokeWidth": 1.2
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "size": {
+          "field": "stem",
+          "type": "quantitative",
+          "title": "STEM enrolments",
+          "scale": {
+            "domain": [
+              0,
+              150000
+            ],
+            "range": [
+              0,
+              1400.0
+            ],
+            "zero": true
+          },
+          "legend": {
+            "orient": "top",
+            "values": [
+              10000,
+              50000,
+              150000
+            ],
+            "labelExpr": "format(datum.value, ',')",
+            "symbolFillColor": "#2a9d8f",
+            "symbolOpacity": 0.75,
+            "symbolStrokeColor": "#fff"
+          }
+        },
+        "color": {
+          "value": "#2a9d8f"
+        },
+        "opacity": {
+          "condition": {
+            "param": "hov",
+            "empty": false,
+            "value": 1
+          },
+          "value": 0.8
+        },
+        "tooltip": [
+          {
+            "field": "state",
+            "title": "State / territory"
+          },
+          {
+            "field": "stem",
+            "format": ",",
+            "title": "STEM enrolments"
+          },
+          {
+            "field": "stem_share",
+            "title": "% of all enrolments in STEM"
+          },
+          {
+            "field": "unis",
+            "title": "Universities teaching STEM"
+          },
+          {
+            "field": "top_uni",
+            "title": "Largest STEM university"
+          },
+          {
+            "field": "top_uni_stem",
+            "format": ",",
+            "title": " - its STEM enrolments"
+          }
+        ]
+      },
+      "params": [
+        {
+          "name": "hov",
+          "select": {
+            "type": "point",
+            "on": "pointerover",
+            "clear": "pointerout",
+            "fields": [
+              "state"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 11.756503486603421,
+        "dy": 0,
+        "fontSize": 11,
+        "fontWeight": 600,
+        "color": "#1d2433",
+        "text": "ACT 11k",
+        "stroke": "#fbfaf7",
+        "strokeWidth": 3,
+        "strokeJoin": "round"
+      },
+      "encoding": {
+        "longitude": {
+          "datum": 149.1
+        },
+        "latitude": {
+          "datum": -35.4
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 11.756503486603421,
+        "dy": 0,
+        "fontSize": 11,
+        "fontWeight": 600,
+        "color": "#1d2433",
+        "text": "ACT 11k"
+      },
+      "encoding": {
+        "longitude": {
+          "datum": 149.1
+        },
+        "latitude": {
+          "datum": -35.4
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 26.90576315005619,
+        "dy": 0,
+        "fontSize": 11,
+        "fontWeight": 600,
+        "color": "#1d2433",
+        "text": "NSW 147k",
+        "stroke": "#fbfaf7",
+        "strokeWidth": 3,
+        "strokeJoin": "round"
+      },
+      "encoding": {
+        "longitude": {
+          "datum": 147.6
+        },
+        "latitude": {
+          "datum": -31.4
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 26.90576315005619,
+        "dy": 0,
+        "fontSize": 11,
+        "fontWeight": 600,
+        "color": "#1d2433",
+        "text": "NSW 147k"
+      },
+      "encoding": {
+        "longitude": {
+          "datum": 147.6
+        },
+        "latitude": {
+          "datum": -31.4
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "dx": 0,
+        "dy": 11.848421807288036,
+        "fontSize": 11,
+        "fontWeight": 600,
+        "color": "#1d2433",
+        "text": "NT 2.7k",
+        "stroke": "#fbfaf7",
+        "strokeWidth": 3,
+        "strokeJoin": "round"
+      },
+      "encoding": {
+        "longitude": {
+          "datum": 133.4
+        },
+        "latitude": {
+          "datum": -19.6
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "dx": 0,
+        "dy": 11.848421807288036,
+        "fontSize": 11,
+        "fontWeight": 600,
+        "color": "#1d2433",
+        "text": "NT 2.7k"
+      },
+      "encoding": {
+        "longitude": {
+          "datum": 133.4
+        },
+        "latitude": {
+          "datum": -19.6
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "dx": 0,
+        "dy": 22.73570109478288,
+        "fontSize": 11,
+        "fontWeight": 600,
+        "color": "#1d2433",
+        "text": "QLD 64k",
+        "stroke": "#fbfaf7",
+        "strokeWidth": 3,
+        "strokeJoin": "round"
+      },
+      "encoding": {
+        "longitude": {
+          "datum": 144.6
+        },
+        "latitude": {
+          "datum": -22.8
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "dx": 0,
+        "dy": 22.73570109478288,
+        "fontSize": 11,
+        "fontWeight": 600,
+        "color": "#1d2433",
+        "text": "QLD 64k"
+      },
+      "encoding": {
+        "longitude": {
+          "datum": 144.6
+        },
+        "latitude": {
+          "datum": -22.8
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "dx": 0,
+        "dy": 17.948267345654404,
+        "fontSize": 11,
+        "fontWeight": 600,
+        "color": "#1d2433",
+        "text": "SA 27k",
+        "stroke": "#fbfaf7",
+        "strokeWidth": 3,
+        "strokeJoin": "round"
+      },
+      "encoding": {
+        "longitude": {
+          "datum": 135.6
+        },
+        "latitude": {
+          "datum": -30.2
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "dx": 0,
+        "dy": 17.948267345654404,
+        "fontSize": 11,
+        "fontWeight": 600,
+        "color": "#1d2433",
+        "text": "SA 27k"
+      },
+      "encoding": {
+        "longitude": {
+          "datum": 135.6
+        },
+        "latitude": {
+          "datum": -30.2
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "dx": 0,
+        "dy": 13.565824248254506,
+        "fontSize": 11,
+        "fontWeight": 600,
+        "color": "#1d2433",
+        "text": "TAS 7.0k",
+        "stroke": "#fbfaf7",
+        "strokeWidth": 3,
+        "strokeJoin": "round"
+      },
+      "encoding": {
+        "longitude": {
+          "datum": 146.7
+        },
+        "latitude": {
+          "datum": -42.1
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "dx": 0,
+        "dy": 13.565824248254506,
+        "fontSize": 11,
+        "fontWeight": 600,
+        "color": "#1d2433",
+        "text": "TAS 7.0k"
+      },
+      "encoding": {
+        "longitude": {
+          "datum": 146.7
+        },
+        "latitude": {
+          "datum": -42.1
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "dx": 0,
+        "dy": 29.195297293036056,
+        "fontSize": 11,
+        "fontWeight": 600,
+        "color": "#1d2433",
+        "text": "VIC 137k",
+        "stroke": "#fbfaf7",
+        "strokeWidth": 3,
+        "strokeJoin": "round"
+      },
+      "encoding": {
+        "longitude": {
+          "datum": 143.3
+        },
+        "latitude": {
+          "datum": -37.3
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "dx": 0,
+        "dy": 29.195297293036056,
+        "fontSize": 11,
+        "fontWeight": 600,
+        "color": "#1d2433",
+        "text": "VIC 137k"
+      },
+      "encoding": {
+        "longitude": {
+          "datum": 143.3
+        },
+        "latitude": {
+          "datum": -37.3
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "dx": 0,
+        "dy": 20.476176421956072,
+        "fontSize": 11,
+        "fontWeight": 600,
+        "color": "#1d2433",
+        "text": "WA 44k",
+        "stroke": "#fbfaf7",
+        "strokeWidth": 3,
+        "strokeJoin": "round"
+      },
+      "encoding": {
+        "longitude": {
+          "datum": 122.0
+        },
+        "latitude": {
+          "datum": -25.6
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "dx": 0,
+        "dy": 20.476176421956072,
+        "fontSize": 11,
+        "fontWeight": 600,
+        "color": "#1d2433",
+        "text": "WA 44k"
+      },
+      "encoding": {
+        "longitude": {
+          "datum": 122.0
+        },
+        "latitude": {
+          "datum": -25.6
+        }
+      }
+    }
+  ],
+  "config": {
+    "font": "IBM Plex Sans",
+    "background": null,
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelColor": "#5f6b7a",
+      "titleColor": "#5f6b7a",
+      "labelFontSize": 11,
+      "titleFontSize": 11,
+      "titleFontWeight": 500,
+      "gridColor": "#e6e3dc",
+      "domainColor": "#c9c4b8",
+      "tickColor": "#c9c4b8"
+    },
+    "legend": {
+      "labelColor": "#1d2433",
+      "titleColor": "#5f6b7a",
+      "labelFontSize": 11,
+      "titleFontSize": 11,
+      "titleFontWeight": 500,
+      "orient": "top",
+      "symbolStrokeWidth": 0
+    },
+    "header": {
+      "labelColor": "#1d2433",
+      "labelFontSize": 12,
+      "labelFontWeight": 600,
+      "titleColor": "#5f6b7a"
+    },
+    "title": {
+      "color": "#1d2433",
+      "font": "Space Grotesk",
+      "fontSize": 15,
+      "fontWeight": 600,
+      "anchor": "start",
+      "subtitleColor": "#5f6b7a",
+      "subtitleFont": "IBM Plex Sans",
+      "subtitleFontSize": 12,
+      "offset": 10
+    },
+    "text": {
+      "font": "IBM Plex Sans",
+      "color": "#1d2433"
+    }
+  }
+}
