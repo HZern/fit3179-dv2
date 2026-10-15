@@ -1,0 +1,101 @@
+year,enrolments,field,stem,change_pct,rank
+2015,114538,Natural & physical sciences,STEM,0.0,5
+2015,60731,Information technology,STEM,0.0,8
+2015,106210,Engineering,STEM,0.0,6
+2015,31115,Architecture & building,Other fields,0.0,9
+2015,18537,Agriculture & environment,STEM,0.0,10
+2015,221297,Health,Other fields,0.0,3
+2015,130370,Education,Other fields,0.0,4
+2015,370127,Management & commerce,Other fields,0.0,1
+2015,307619,Society & culture,Other fields,0.0,2
+2015,90563,Creative arts,Other fields,0.0,7
+2016,119102,Natural & physical sciences,STEM,3.9847037664356044,5
+2016,66355,Information technology,STEM,9.260509459748722,8
+2016,111060,Engineering,STEM,4.566425007061481,6
+2016,32074,Architecture & building,Other fields,3.082114735658048,9
+2016,18537,Agriculture & environment,STEM,0.0,10
+2016,235033,Health,Other fields,6.207043023628889,3
+2016,128277,Education,Other fields,-1.6054306972463017,4
+2016,380800,Management & commerce,Other fields,2.8836048167250716,1
+2016,312569,Society & culture,Other fields,1.609133376026839,2
+2016,93916,Creative arts,Other fields,3.7023950178328935,7
+2017,124209,Natural & physical sciences,STEM,8.44348600464475,5
+2017,80090,Information technology,STEM,31.876636314238205,8
+2017,115231,Engineering,STEM,8.493550513134362,6
+2017,35604,Architecture & building,Other fields,14.427125180780976,9
+2017,18260,Agriculture & environment,STEM,-1.4943086799374172,10
+2017,247198,Health,Other fields,11.704180354907656,3
+2017,128603,Education,Other fields,-1.355373168673779,4
+2017,389836,Management & commerce,Other fields,5.324929010853041,1
+2017,322471,Society & culture,Other fields,4.828050282979923,2
+2017,94955,Creative arts,Other fields,4.849662665768584,7
+2018,129609,Natural & physical sciences,STEM,13.158078541619368,4
+2018,99986,Information technology,STEM,64.6374997941743,7
+2018,119909,Engineering,STEM,12.89803220035779,6
+2018,39459,Architecture & building,Other fields,26.81664791901013,9
+2018,18055,Agriculture & environment,STEM,-2.600204995414579,10
+2018,256324,Health,Other fields,15.828050086535296,3
+2018,126360,Education,Other fields,-3.0758610109687834,5
+2018,396813,Management & commerce,Other fields,7.209957663180466,1
+2018,326071,Society & culture,Other fields,5.998329101908539,2
+2018,96195,Creative arts,Other fields,6.218875258107626,8
+2019,134334,Natural & physical sciences,STEM,17.283347011472184,4
+2019,116623,Information technology,STEM,92.03207587558249,7
+2019,121980,Engineering,STEM,14.847942754919497,6
+2019,42370,Architecture & building,Other fields,36.172264181263046,9
+2019,18747,Agriculture & environment,STEM,1.1328693963424508,10
+2019,265586,Health,Other fields,20.013375689683997,3
+2019,127202,Education,Other fields,-2.4300069034287053,5
+2019,399609,Management & commerce,Other fields,7.965374047286478,1
+2019,332155,Society & culture,Other fields,7.976100305897882,2
+2019,97478,Creative arts,Other fields,7.635568609697119,8
+2020,136733,Natural & physical sciences,STEM,19.37784839965775,4
+2020,120916,Information technology,STEM,99.10095338459766,6
+2020,118229,Engineering,STEM,11.316260239148846,7
+2020,43478,Architecture & building,Other fields,39.73324762976056,9
+2020,21916,Agriculture & environment,STEM,18.22840804876733,10
+2020,277590,Health,Other fields,25.43776011423562,3
+2020,135250,Education,Other fields,3.743192452251276,5
+2020,380050,Management & commerce,Other fields,2.680971666482046,1
+2020,343667,Society & culture,Other fields,11.718391906871805,2
+2020,97745,Creative arts,Other fields,7.930390998531411,8
+2021,139629,Natural & physical sciences,STEM,21.906266915783412,5
+2021,116296,Information technology,STEM,91.49363586965471,6
+2021,112931,Engineering,STEM,6.328029375764999,7
+2021,43773,Architecture & building,Other fields,40.681343403503135,9
+2021,20776,Agriculture & environment,STEM,12.07854561147974,10
+2021,288385,Health,Other fields,30.315819916221187,3
+2021,141971,Education,Other fields,8.898519598067045,4
+2021,352882,Management & commerce,Other fields,-4.659211567921284,1
+2021,350654,Society & culture,Other fields,13.989708047942418,2
+2021,98528,Creative arts,Other fields,8.794982498371295,8
+2022,134424,Natural & physical sciences,STEM,17.361923553755076,5
+2022,119278,Information technology,STEM,96.40381353839061,6
+2022,109812,Engineering,STEM,3.3913944073062696,7
+2022,42327,Architecture & building,Other fields,36.03406717017516,9
+2022,19476,Agriculture & environment,STEM,5.065544586502679,10
+2022,280887,Health,Other fields,26.92761311721352,3
+2022,136096,Education,Other fields,4.392114750325993,4
+2022,340454,Management & commerce,Other fields,-8.016977956215033,1
+2022,334897,Society & culture,Other fields,8.86746267298184,2
+2022,93412,Creative arts,Other fields,3.1458763512692833,8
+2023,132406,Natural & physical sciences,STEM,15.600062861233832,6
+2023,143253,Information technology,STEM,135.88118094548088,4
+2023,115197,Engineering,STEM,8.461538461538453,7
+2023,42174,Architecture & building,Other fields,35.542342921420534,9
+2023,19284,Agriculture & environment,STEM,4.029778281275287,10
+2023,283060,Health,Other fields,27.90955141732603,3
+2023,137387,Education,Other fields,5.382373245378536,5
+2023,360236,Management & commerce,Other fields,-2.6723259854050108,1
+2023,326512,Society & culture,Other fields,6.1416882572272735,2
+2023,92496,Creative arts,Other fields,2.1344257588640003,8
+2024,134511,Natural & physical sciences,STEM,17.4378808779619,6
+2024,164464,Information technology,STEM,170.80733068778713,4
+2024,122954,Engineering,STEM,15.76499388004895,7
+2024,40942,Architecture & building,Other fields,31.58283785955327,9
+2024,19376,Agriculture & environment,STEM,4.526082969196743,10
+2024,295498,Health,Other fields,33.53005237305522,3
+2024,153177,Education,Other fields,17.494055380839146,5
+2024,368989,Management & commerce,Other fields,-0.3074620333020861,1
+2024,329590,Society & culture,Other fields,7.14227664741125,2
+2024,96142,Creative arts,Other fields,6.160352461822161,8

@@ -1,0 +1,401 @@
+order,stage,pct,year,i,col,row,who
+1,Year 12 STEM subjects,47,2024,0,0,0,Women
+1,Year 12 STEM subjects,47,2024,1,1,0,Women
+1,Year 12 STEM subjects,47,2024,2,2,0,Women
+1,Year 12 STEM subjects,47,2024,3,3,0,Women
+1,Year 12 STEM subjects,47,2024,4,4,0,Women
+1,Year 12 STEM subjects,47,2024,5,5,0,Women
+1,Year 12 STEM subjects,47,2024,6,6,0,Women
+1,Year 12 STEM subjects,47,2024,7,7,0,Women
+1,Year 12 STEM subjects,47,2024,8,8,0,Women
+1,Year 12 STEM subjects,47,2024,9,9,0,Women
+1,Year 12 STEM subjects,47,2024,10,0,1,Women
+1,Year 12 STEM subjects,47,2024,11,1,1,Women
+1,Year 12 STEM subjects,47,2024,12,2,1,Women
+1,Year 12 STEM subjects,47,2024,13,3,1,Women
+1,Year 12 STEM subjects,47,2024,14,4,1,Women
+1,Year 12 STEM subjects,47,2024,15,5,1,Women
+1,Year 12 STEM subjects,47,2024,16,6,1,Women
+1,Year 12 STEM subjects,47,2024,17,7,1,Women
+1,Year 12 STEM subjects,47,2024,18,8,1,Women
+1,Year 12 STEM subjects,47,2024,19,9,1,Women
+1,Year 12 STEM subjects,47,2024,20,0,2,Women
+1,Year 12 STEM subjects,47,2024,21,1,2,Women
+1,Year 12 STEM subjects,47,2024,22,2,2,Women
+1,Year 12 STEM subjects,47,2024,23,3,2,Women
+1,Year 12 STEM subjects,47,2024,24,4,2,Women
+1,Year 12 STEM subjects,47,2024,25,5,2,Women
+1,Year 12 STEM subjects,47,2024,26,6,2,Women
+1,Year 12 STEM subjects,47,2024,27,7,2,Women
+1,Year 12 STEM subjects,47,2024,28,8,2,Women
+1,Year 12 STEM subjects,47,2024,29,9,2,Women
+1,Year 12 STEM subjects,47,2024,30,0,3,Women
+1,Year 12 STEM subjects,47,2024,31,1,3,Women
+1,Year 12 STEM subjects,47,2024,32,2,3,Women
+1,Year 12 STEM subjects,47,2024,33,3,3,Women
+1,Year 12 STEM subjects,47,2024,34,4,3,Women
+1,Year 12 STEM subjects,47,2024,35,5,3,Women
+1,Year 12 STEM subjects,47,2024,36,6,3,Women
+1,Year 12 STEM subjects,47,2024,37,7,3,Women
+1,Year 12 STEM subjects,47,2024,38,8,3,Women
+1,Year 12 STEM subjects,47,2024,39,9,3,Women
+1,Year 12 STEM subjects,47,2024,40,0,4,Women
+1,Year 12 STEM subjects,47,2024,41,1,4,Women
+1,Year 12 STEM subjects,47,2024,42,2,4,Women
+1,Year 12 STEM subjects,47,2024,43,3,4,Women
+1,Year 12 STEM subjects,47,2024,44,4,4,Women
+1,Year 12 STEM subjects,47,2024,45,5,4,Women
+1,Year 12 STEM subjects,47,2024,46,6,4,Women
+1,Year 12 STEM subjects,47,2024,47,7,4,Men
+1,Year 12 STEM subjects,47,2024,48,8,4,Men
+1,Year 12 STEM subjects,47,2024,49,9,4,Men
+1,Year 12 STEM subjects,47,2024,50,0,5,Men
+1,Year 12 STEM subjects,47,2024,51,1,5,Men
+1,Year 12 STEM subjects,47,2024,52,2,5,Men
+1,Year 12 STEM subjects,47,2024,53,3,5,Men
+1,Year 12 STEM subjects,47,2024,54,4,5,Men
+1,Year 12 STEM subjects,47,2024,55,5,5,Men
+1,Year 12 STEM subjects,47,2024,56,6,5,Men
+1,Year 12 STEM subjects,47,2024,57,7,5,Men
+1,Year 12 STEM subjects,47,2024,58,8,5,Men
+1,Year 12 STEM subjects,47,2024,59,9,5,Men
+1,Year 12 STEM subjects,47,2024,60,0,6,Men
+1,Year 12 STEM subjects,47,2024,61,1,6,Men
+1,Year 12 STEM subjects,47,2024,62,2,6,Men
+1,Year 12 STEM subjects,47,2024,63,3,6,Men
+1,Year 12 STEM subjects,47,2024,64,4,6,Men
+1,Year 12 STEM subjects,47,2024,65,5,6,Men
+1,Year 12 STEM subjects,47,2024,66,6,6,Men
+1,Year 12 STEM subjects,47,2024,67,7,6,Men
+1,Year 12 STEM subjects,47,2024,68,8,6,Men
+1,Year 12 STEM subjects,47,2024,69,9,6,Men
+1,Year 12 STEM subjects,47,2024,70,0,7,Men
+1,Year 12 STEM subjects,47,2024,71,1,7,Men
+1,Year 12 STEM subjects,47,2024,72,2,7,Men
+1,Year 12 STEM subjects,47,2024,73,3,7,Men
+1,Year 12 STEM subjects,47,2024,74,4,7,Men
+1,Year 12 STEM subjects,47,2024,75,5,7,Men
+1,Year 12 STEM subjects,47,2024,76,6,7,Men
+1,Year 12 STEM subjects,47,2024,77,7,7,Men
+1,Year 12 STEM subjects,47,2024,78,8,7,Men
+1,Year 12 STEM subjects,47,2024,79,9,7,Men
+1,Year 12 STEM subjects,47,2024,80,0,8,Men
+1,Year 12 STEM subjects,47,2024,81,1,8,Men
+1,Year 12 STEM subjects,47,2024,82,2,8,Men
+1,Year 12 STEM subjects,47,2024,83,3,8,Men
+1,Year 12 STEM subjects,47,2024,84,4,8,Men
+1,Year 12 STEM subjects,47,2024,85,5,8,Men
+1,Year 12 STEM subjects,47,2024,86,6,8,Men
+1,Year 12 STEM subjects,47,2024,87,7,8,Men
+1,Year 12 STEM subjects,47,2024,88,8,8,Men
+1,Year 12 STEM subjects,47,2024,89,9,8,Men
+1,Year 12 STEM subjects,47,2024,90,0,9,Men
+1,Year 12 STEM subjects,47,2024,91,1,9,Men
+1,Year 12 STEM subjects,47,2024,92,2,9,Men
+1,Year 12 STEM subjects,47,2024,93,3,9,Men
+1,Year 12 STEM subjects,47,2024,94,4,9,Men
+1,Year 12 STEM subjects,47,2024,95,5,9,Men
+1,Year 12 STEM subjects,47,2024,96,6,9,Men
+1,Year 12 STEM subjects,47,2024,97,7,9,Men
+1,Year 12 STEM subjects,47,2024,98,8,9,Men
+1,Year 12 STEM subjects,47,2024,99,9,9,Men
+2,University STEM enrolments,37,2024,0,0,0,Women
+2,University STEM enrolments,37,2024,1,1,0,Women
+2,University STEM enrolments,37,2024,2,2,0,Women
+2,University STEM enrolments,37,2024,3,3,0,Women
+2,University STEM enrolments,37,2024,4,4,0,Women
+2,University STEM enrolments,37,2024,5,5,0,Women
+2,University STEM enrolments,37,2024,6,6,0,Women
+2,University STEM enrolments,37,2024,7,7,0,Women
+2,University STEM enrolments,37,2024,8,8,0,Women
+2,University STEM enrolments,37,2024,9,9,0,Women
+2,University STEM enrolments,37,2024,10,0,1,Women
+2,University STEM enrolments,37,2024,11,1,1,Women
+2,University STEM enrolments,37,2024,12,2,1,Women
+2,University STEM enrolments,37,2024,13,3,1,Women
+2,University STEM enrolments,37,2024,14,4,1,Women
+2,University STEM enrolments,37,2024,15,5,1,Women
+2,University STEM enrolments,37,2024,16,6,1,Women
+2,University STEM enrolments,37,2024,17,7,1,Women
+2,University STEM enrolments,37,2024,18,8,1,Women
+2,University STEM enrolments,37,2024,19,9,1,Women
+2,University STEM enrolments,37,2024,20,0,2,Women
+2,University STEM enrolments,37,2024,21,1,2,Women
+2,University STEM enrolments,37,2024,22,2,2,Women
+2,University STEM enrolments,37,2024,23,3,2,Women
+2,University STEM enrolments,37,2024,24,4,2,Women
+2,University STEM enrolments,37,2024,25,5,2,Women
+2,University STEM enrolments,37,2024,26,6,2,Women
+2,University STEM enrolments,37,2024,27,7,2,Women
+2,University STEM enrolments,37,2024,28,8,2,Women
+2,University STEM enrolments,37,2024,29,9,2,Women
+2,University STEM enrolments,37,2024,30,0,3,Women
+2,University STEM enrolments,37,2024,31,1,3,Women
+2,University STEM enrolments,37,2024,32,2,3,Women
+2,University STEM enrolments,37,2024,33,3,3,Women
+2,University STEM enrolments,37,2024,34,4,3,Women
+2,University STEM enrolments,37,2024,35,5,3,Women
+2,University STEM enrolments,37,2024,36,6,3,Women
+2,University STEM enrolments,37,2024,37,7,3,Men
+2,University STEM enrolments,37,2024,38,8,3,Men
+2,University STEM enrolments,37,2024,39,9,3,Men
+2,University STEM enrolments,37,2024,40,0,4,Men
+2,University STEM enrolments,37,2024,41,1,4,Men
+2,University STEM enrolments,37,2024,42,2,4,Men
+2,University STEM enrolments,37,2024,43,3,4,Men
+2,University STEM enrolments,37,2024,44,4,4,Men
+2,University STEM enrolments,37,2024,45,5,4,Men
+2,University STEM enrolments,37,2024,46,6,4,Men
+2,University STEM enrolments,37,2024,47,7,4,Men
+2,University STEM enrolments,37,2024,48,8,4,Men
+2,University STEM enrolments,37,2024,49,9,4,Men
+2,University STEM enrolments,37,2024,50,0,5,Men
+2,University STEM enrolments,37,2024,51,1,5,Men
+2,University STEM enrolments,37,2024,52,2,5,Men
+2,University STEM enrolments,37,2024,53,3,5,Men
+2,University STEM enrolments,37,2024,54,4,5,Men
+2,University STEM enrolments,37,2024,55,5,5,Men
+2,University STEM enrolments,37,2024,56,6,5,Men
+2,University STEM enrolments,37,2024,57,7,5,Men
+2,University STEM enrolments,37,2024,58,8,5,Men
+2,University STEM enrolments,37,2024,59,9,5,Men
+2,University STEM enrolments,37,2024,60,0,6,Men
+2,University STEM enrolments,37,2024,61,1,6,Men
+2,University STEM enrolments,37,2024,62,2,6,Men
+2,University STEM enrolments,37,2024,63,3,6,Men
+2,University STEM enrolments,37,2024,64,4,6,Men
+2,University STEM enrolments,37,2024,65,5,6,Men
+2,University STEM enrolments,37,2024,66,6,6,Men
+2,University STEM enrolments,37,2024,67,7,6,Men
+2,University STEM enrolments,37,2024,68,8,6,Men
+2,University STEM enrolments,37,2024,69,9,6,Men
+2,University STEM enrolments,37,2024,70,0,7,Men
+2,University STEM enrolments,37,2024,71,1,7,Men
+2,University STEM enrolments,37,2024,72,2,7,Men
+2,University STEM enrolments,37,2024,73,3,7,Men
+2,University STEM enrolments,37,2024,74,4,7,Men
+2,University STEM enrolments,37,2024,75,5,7,Men
+2,University STEM enrolments,37,2024,76,6,7,Men
+2,University STEM enrolments,37,2024,77,7,7,Men
+2,University STEM enrolments,37,2024,78,8,7,Men
+2,University STEM enrolments,37,2024,79,9,7,Men
+2,University STEM enrolments,37,2024,80,0,8,Men
+2,University STEM enrolments,37,2024,81,1,8,Men
+2,University STEM enrolments,37,2024,82,2,8,Men
+2,University STEM enrolments,37,2024,83,3,8,Men
+2,University STEM enrolments,37,2024,84,4,8,Men
+2,University STEM enrolments,37,2024,85,5,8,Men
+2,University STEM enrolments,37,2024,86,6,8,Men
+2,University STEM enrolments,37,2024,87,7,8,Men
+2,University STEM enrolments,37,2024,88,8,8,Men
+2,University STEM enrolments,37,2024,89,9,8,Men
+2,University STEM enrolments,37,2024,90,0,9,Men
+2,University STEM enrolments,37,2024,91,1,9,Men
+2,University STEM enrolments,37,2024,92,2,9,Men
+2,University STEM enrolments,37,2024,93,3,9,Men
+2,University STEM enrolments,37,2024,94,4,9,Men
+2,University STEM enrolments,37,2024,95,5,9,Men
+2,University STEM enrolments,37,2024,96,6,9,Men
+2,University STEM enrolments,37,2024,97,7,9,Men
+2,University STEM enrolments,37,2024,98,8,9,Men
+2,University STEM enrolments,37,2024,99,9,9,Men
+3,University STEM graduates,39,2024,0,0,0,Women
+3,University STEM graduates,39,2024,1,1,0,Women
+3,University STEM graduates,39,2024,2,2,0,Women
+3,University STEM graduates,39,2024,3,3,0,Women
+3,University STEM graduates,39,2024,4,4,0,Women
+3,University STEM graduates,39,2024,5,5,0,Women
+3,University STEM graduates,39,2024,6,6,0,Women
+3,University STEM graduates,39,2024,7,7,0,Women
+3,University STEM graduates,39,2024,8,8,0,Women
+3,University STEM graduates,39,2024,9,9,0,Women
+3,University STEM graduates,39,2024,10,0,1,Women
+3,University STEM graduates,39,2024,11,1,1,Women
+3,University STEM graduates,39,2024,12,2,1,Women
+3,University STEM graduates,39,2024,13,3,1,Women
+3,University STEM graduates,39,2024,14,4,1,Women
+3,University STEM graduates,39,2024,15,5,1,Women
+3,University STEM graduates,39,2024,16,6,1,Women
+3,University STEM graduates,39,2024,17,7,1,Women
+3,University STEM graduates,39,2024,18,8,1,Women
+3,University STEM graduates,39,2024,19,9,1,Women
+3,University STEM graduates,39,2024,20,0,2,Women
+3,University STEM graduates,39,2024,21,1,2,Women
+3,University STEM graduates,39,2024,22,2,2,Women
+3,University STEM graduates,39,2024,23,3,2,Women
+3,University STEM graduates,39,2024,24,4,2,Women
+3,University STEM graduates,39,2024,25,5,2,Women
+3,University STEM graduates,39,2024,26,6,2,Women
+3,University STEM graduates,39,2024,27,7,2,Women
+3,University STEM graduates,39,2024,28,8,2,Women
+3,University STEM graduates,39,2024,29,9,2,Women
+3,University STEM graduates,39,2024,30,0,3,Women
+3,University STEM graduates,39,2024,31,1,3,Women
+3,University STEM graduates,39,2024,32,2,3,Women
+3,University STEM graduates,39,2024,33,3,3,Women
+3,University STEM graduates,39,2024,34,4,3,Women
+3,University STEM graduates,39,2024,35,5,3,Women
+3,University STEM graduates,39,2024,36,6,3,Women
+3,University STEM graduates,39,2024,37,7,3,Women
+3,University STEM graduates,39,2024,38,8,3,Women
+3,University STEM graduates,39,2024,39,9,3,Men
+3,University STEM graduates,39,2024,40,0,4,Men
+3,University STEM graduates,39,2024,41,1,4,Men
+3,University STEM graduates,39,2024,42,2,4,Men
+3,University STEM graduates,39,2024,43,3,4,Men
+3,University STEM graduates,39,2024,44,4,4,Men
+3,University STEM graduates,39,2024,45,5,4,Men
+3,University STEM graduates,39,2024,46,6,4,Men
+3,University STEM graduates,39,2024,47,7,4,Men
+3,University STEM graduates,39,2024,48,8,4,Men
+3,University STEM graduates,39,2024,49,9,4,Men
+3,University STEM graduates,39,2024,50,0,5,Men
+3,University STEM graduates,39,2024,51,1,5,Men
+3,University STEM graduates,39,2024,52,2,5,Men
+3,University STEM graduates,39,2024,53,3,5,Men
+3,University STEM graduates,39,2024,54,4,5,Men
+3,University STEM graduates,39,2024,55,5,5,Men
+3,University STEM graduates,39,2024,56,6,5,Men
+3,University STEM graduates,39,2024,57,7,5,Men
+3,University STEM graduates,39,2024,58,8,5,Men
+3,University STEM graduates,39,2024,59,9,5,Men
+3,University STEM graduates,39,2024,60,0,6,Men
+3,University STEM graduates,39,2024,61,1,6,Men
+3,University STEM graduates,39,2024,62,2,6,Men
+3,University STEM graduates,39,2024,63,3,6,Men
+3,University STEM graduates,39,2024,64,4,6,Men
+3,University STEM graduates,39,2024,65,5,6,Men
+3,University STEM graduates,39,2024,66,6,6,Men
+3,University STEM graduates,39,2024,67,7,6,Men
+3,University STEM graduates,39,2024,68,8,6,Men
+3,University STEM graduates,39,2024,69,9,6,Men
+3,University STEM graduates,39,2024,70,0,7,Men
+3,University STEM graduates,39,2024,71,1,7,Men
+3,University STEM graduates,39,2024,72,2,7,Men
+3,University STEM graduates,39,2024,73,3,7,Men
+3,University STEM graduates,39,2024,74,4,7,Men
+3,University STEM graduates,39,2024,75,5,7,Men
+3,University STEM graduates,39,2024,76,6,7,Men
+3,University STEM graduates,39,2024,77,7,7,Men
+3,University STEM graduates,39,2024,78,8,7,Men
+3,University STEM graduates,39,2024,79,9,7,Men
+3,University STEM graduates,39,2024,80,0,8,Men
+3,University STEM graduates,39,2024,81,1,8,Men
+3,University STEM graduates,39,2024,82,2,8,Men
+3,University STEM graduates,39,2024,83,3,8,Men
+3,University STEM graduates,39,2024,84,4,8,Men
+3,University STEM graduates,39,2024,85,5,8,Men
+3,University STEM graduates,39,2024,86,6,8,Men
+3,University STEM graduates,39,2024,87,7,8,Men
+3,University STEM graduates,39,2024,88,8,8,Men
+3,University STEM graduates,39,2024,89,9,8,Men
+3,University STEM graduates,39,2024,90,0,9,Men
+3,University STEM graduates,39,2024,91,1,9,Men
+3,University STEM graduates,39,2024,92,2,9,Men
+3,University STEM graduates,39,2024,93,3,9,Men
+3,University STEM graduates,39,2024,94,4,9,Men
+3,University STEM graduates,39,2024,95,5,9,Men
+3,University STEM graduates,39,2024,96,6,9,Men
+3,University STEM graduates,39,2024,97,7,9,Men
+3,University STEM graduates,39,2024,98,8,9,Men
+3,University STEM graduates,39,2024,99,9,9,Men
+4,STEM-qualified jobs,16,2025,0,0,0,Women
+4,STEM-qualified jobs,16,2025,1,1,0,Women
+4,STEM-qualified jobs,16,2025,2,2,0,Women
+4,STEM-qualified jobs,16,2025,3,3,0,Women
+4,STEM-qualified jobs,16,2025,4,4,0,Women
+4,STEM-qualified jobs,16,2025,5,5,0,Women
+4,STEM-qualified jobs,16,2025,6,6,0,Women
+4,STEM-qualified jobs,16,2025,7,7,0,Women
+4,STEM-qualified jobs,16,2025,8,8,0,Women
+4,STEM-qualified jobs,16,2025,9,9,0,Women
+4,STEM-qualified jobs,16,2025,10,0,1,Women
+4,STEM-qualified jobs,16,2025,11,1,1,Women
+4,STEM-qualified jobs,16,2025,12,2,1,Women
+4,STEM-qualified jobs,16,2025,13,3,1,Women
+4,STEM-qualified jobs,16,2025,14,4,1,Women
+4,STEM-qualified jobs,16,2025,15,5,1,Women
+4,STEM-qualified jobs,16,2025,16,6,1,Men
+4,STEM-qualified jobs,16,2025,17,7,1,Men
+4,STEM-qualified jobs,16,2025,18,8,1,Men
+4,STEM-qualified jobs,16,2025,19,9,1,Men
+4,STEM-qualified jobs,16,2025,20,0,2,Men
+4,STEM-qualified jobs,16,2025,21,1,2,Men
+4,STEM-qualified jobs,16,2025,22,2,2,Men
+4,STEM-qualified jobs,16,2025,23,3,2,Men
+4,STEM-qualified jobs,16,2025,24,4,2,Men
+4,STEM-qualified jobs,16,2025,25,5,2,Men
+4,STEM-qualified jobs,16,2025,26,6,2,Men
+4,STEM-qualified jobs,16,2025,27,7,2,Men
+4,STEM-qualified jobs,16,2025,28,8,2,Men
+4,STEM-qualified jobs,16,2025,29,9,2,Men
+4,STEM-qualified jobs,16,2025,30,0,3,Men
+4,STEM-qualified jobs,16,2025,31,1,3,Men
+4,STEM-qualified jobs,16,2025,32,2,3,Men
+4,STEM-qualified jobs,16,2025,33,3,3,Men
+4,STEM-qualified jobs,16,2025,34,4,3,Men
+4,STEM-qualified jobs,16,2025,35,5,3,Men
+4,STEM-qualified jobs,16,2025,36,6,3,Men
+4,STEM-qualified jobs,16,2025,37,7,3,Men
+4,STEM-qualified jobs,16,2025,38,8,3,Men
+4,STEM-qualified jobs,16,2025,39,9,3,Men
+4,STEM-qualified jobs,16,2025,40,0,4,Men
+4,STEM-qualified jobs,16,2025,41,1,4,Men
+4,STEM-qualified jobs,16,2025,42,2,4,Men
+4,STEM-qualified jobs,16,2025,43,3,4,Men
+4,STEM-qualified jobs,16,2025,44,4,4,Men
+4,STEM-qualified jobs,16,2025,45,5,4,Men
+4,STEM-qualified jobs,16,2025,46,6,4,Men
+4,STEM-qualified jobs,16,2025,47,7,4,Men
+4,STEM-qualified jobs,16,2025,48,8,4,Men
+4,STEM-qualified jobs,16,2025,49,9,4,Men
+4,STEM-qualified jobs,16,2025,50,0,5,Men
+4,STEM-qualified jobs,16,2025,51,1,5,Men
+4,STEM-qualified jobs,16,2025,52,2,5,Men
+4,STEM-qualified jobs,16,2025,53,3,5,Men
+4,STEM-qualified jobs,16,2025,54,4,5,Men
+4,STEM-qualified jobs,16,2025,55,5,5,Men
+4,STEM-qualified jobs,16,2025,56,6,5,Men
+4,STEM-qualified jobs,16,2025,57,7,5,Men
+4,STEM-qualified jobs,16,2025,58,8,5,Men
+4,STEM-qualified jobs,16,2025,59,9,5,Men
+4,STEM-qualified jobs,16,2025,60,0,6,Men
+4,STEM-qualified jobs,16,2025,61,1,6,Men
+4,STEM-qualified jobs,16,2025,62,2,6,Men
+4,STEM-qualified jobs,16,2025,63,3,6,Men
+4,STEM-qualified jobs,16,2025,64,4,6,Men
+4,STEM-qualified jobs,16,2025,65,5,6,Men
+4,STEM-qualified jobs,16,2025,66,6,6,Men
+4,STEM-qualified jobs,16,2025,67,7,6,Men
+4,STEM-qualified jobs,16,2025,68,8,6,Men
+4,STEM-qualified jobs,16,2025,69,9,6,Men
+4,STEM-qualified jobs,16,2025,70,0,7,Men
+4,STEM-qualified jobs,16,2025,71,1,7,Men
+4,STEM-qualified jobs,16,2025,72,2,7,Men
+4,STEM-qualified jobs,16,2025,73,3,7,Men
+4,STEM-qualified jobs,16,2025,74,4,7,Men
+4,STEM-qualified jobs,16,2025,75,5,7,Men
+4,STEM-qualified jobs,16,2025,76,6,7,Men
+4,STEM-qualified jobs,16,2025,77,7,7,Men
+4,STEM-qualified jobs,16,2025,78,8,7,Men
+4,STEM-qualified jobs,16,2025,79,9,7,Men
+4,STEM-qualified jobs,16,2025,80,0,8,Men
+4,STEM-qualified jobs,16,2025,81,1,8,Men
+4,STEM-qualified jobs,16,2025,82,2,8,Men
+4,STEM-qualified jobs,16,2025,83,3,8,Men
+4,STEM-qualified jobs,16,2025,84,4,8,Men
+4,STEM-qualified jobs,16,2025,85,5,8,Men
+4,STEM-qualified jobs,16,2025,86,6,8,Men
+4,STEM-qualified jobs,16,2025,87,7,8,Men
+4,STEM-qualified jobs,16,2025,88,8,8,Men
+4,STEM-qualified jobs,16,2025,89,9,8,Men
+4,STEM-qualified jobs,16,2025,90,0,9,Men
+4,STEM-qualified jobs,16,2025,91,1,9,Men
+4,STEM-qualified jobs,16,2025,92,2,9,Men
+4,STEM-qualified jobs,16,2025,93,3,9,Men
+4,STEM-qualified jobs,16,2025,94,4,9,Men
+4,STEM-qualified jobs,16,2025,95,5,9,Men
+4,STEM-qualified jobs,16,2025,96,6,9,Men
+4,STEM-qualified jobs,16,2025,97,7,9,Men
+4,STEM-qualified jobs,16,2025,98,8,9,Men
+4,STEM-qualified jobs,16,2025,99,9,9,Men

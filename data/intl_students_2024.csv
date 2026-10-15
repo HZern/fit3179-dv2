@@ -1,0 +1,16 @@
+region,country,students,lon,lat,dest_lon,dest_lat,highlight
+North-East Asia,China,166525,103.38,36.69,149.13,-35.28,Other
+Southern and Central Asia,India,89454,79.57,22.79,149.13,-35.28,Other
+Southern and Central Asia,Nepal,43188,83.96,28.25,149.13,-35.28,Other
+South-East Asia,Vietnam,39472,106.35,16.54,149.13,-35.28,Other
+South-East Asia,Singapore,24107,103.82,1.35,149.13,-35.28,Other
+South-East Asia,Malaysia,23621,101.69,3.14,149.13,-35.28,Malaysia
+Southern and Central Asia,Sri Lanka,21413,80.7,7.63,149.13,-35.28,Other
+Southern and Central Asia,Bangladesh,16392,90.22,23.86,149.13,-35.28,Other
+South-East Asia,Indonesia,15496,106.85,-6.21,149.13,-35.28,Other
+Southern and Central Asia,Pakistan,12907,69.16,29.88,149.13,-35.28,Other
+Southern and Central Asia,Bhutan,12090,90.41,27.4,149.13,-35.28,Other
+North-East Asia,Hong Kong,11598,114.17,22.32,149.13,-35.28,Other
+South-East Asia,Philippines,8241,122.97,11.74,149.13,-35.28,Other
+North Africa and the Middle East,United Arab Emirates,8168,54.28,23.9,149.13,-35.28,Other
+Sub-Saharan Africa,Kenya,7291,37.8,0.6,149.13,-35.28,Other
