@@ -106,11 +106,11 @@
         <figcaption><strong>Victoria leads with 29%</strong>; South Australia, Tasmania and the Northern Territory are lowest at about 22%.</figcaption>
       </figure>
       <figure class="card span-6">
-        <h3>STEM students at each university</h3>
-        <p class="sub">Each circle is a university (main campus); its area shows the number of STEM enrolments in 2024.</p>
-        <p class="hint">Hover a circle for the university's STEM mix</p>
+        <h3>How many STEM students does each state have?</h3>
+        <p class="sub">Circle area shows the number of STEM enrolments in each state or territory, 2024 (universities and other higher education providers).</p>
+        <p class="hint">Hover a circle to see the state's largest STEM university</p>
         <div id="c5" class="chart"></div>
-        <figcaption><strong>The 7 universities based in Melbourne teach 123,000 STEM students</strong>, more than Sydney's 6 (102,000). Regional universities are small dots.</figcaption>
+        <figcaption><strong>New South Wales (147,000) and Victoria (137,000) teach almost two in three of Australia's STEM students.</strong> The map on the left shows shares; this one shows the actual number of students.</figcaption>
       </figure>
       <figure class="card span-12">
         <h3>The universities with the most STEM students</h3>
@@ -207,7 +207,7 @@
         <li>Australian Government Department of Education (2025). <em>Selected Higher Education Statistics – 2024 Student data</em>: Summary time series (Table 2), Section 2 All students (Table 2.10), Section 7 Overseas students (Table 7.4), Section 14 Award course completions (Table 14.3). <a href="https://www.education.gov.au/higher-education-statistics/student-data/selected-higher-education-statistics-2024-student-data">education.gov.au</a></li>
         <li>Australian Government Department of Industry, Science and Resources (2026). <em>STEM Equity Monitor</em>: Year 12 subject enrolment in STEM; University enrolment and completion in STEM; Detailed STEM-qualified occupations by gender (data from Department of Education and ABS). <a href="https://www.industry.gov.au/publications/stem-equity-monitor">industry.gov.au/stem-equity-monitor</a></li>
         <li>OECD (2023). <em>PISA 2022 Results (Volume I)</em>, mean mathematics scores. <a href="https://www.oecd.org/en/publications/pisa-2022-results-volume-i-and-ii-country-notes_ed6fbcc5-en/australia_e9346d47-en.html">oecd.org</a>; ranking table compiled by The Hechinger Report from OECD data: <a href="https://hechingerreport.org/wp-content/uploads/2023/12/Math-rankings-PISA-2022.pdf">hechingerreport.org</a></li>
-        <li>Map data: Natural Earth country boundaries via <a href="https://github.com/topojson/world-atlas">world-atlas</a> (public domain); Australian state boundaries from <a href="https://github.com/rowanhogan/australian-states">rowanhogan/australian-states</a> (based on ABS boundaries). University locations are approximate main-campus coordinates added by the author.</li>
+        <li>Map data: Natural Earth country boundaries via <a href="https://github.com/topojson/world-atlas">world-atlas</a> (public domain); Australian state boundaries from <a href="https://github.com/rowanhogan/australian-states">rowanhogan/australian-states</a> (based on ABS boundaries). In the state proportional symbol map, each circle is placed inside its state by the author.</li>
       </ol>
       <p style="margin-top:12px">Notes: STEM = natural &amp; physical sciences, information technology, engineering &amp; related technologies, and agriculture, environmental &amp; related studies. Students in combined degrees may be counted in two fields. Cells marked "np" or "&lt;5" in the source were treated as zero.</p>
     </div>
@@ -222,7 +222,7 @@
 <script>
   const opts = { actions: false, renderer: 'svg' };
   const charts = {
-    c1: 'c1_pisa_map', c2: 'c2_bump', c3: 'c3_heatmap', c4: 'c4_state_choropleth', c5: 'c5_uni_symbols',
+    c1: 'c1_pisa_map', c2: 'c2_bump', c3: 'c3_heatmap', c4: 'c4_state_choropleth', c5: 'c5_state_symbols',
     c6: 'c6_top_unis', c7: 'c7_flow_map', c8: 'c8_completions', c9: 'c9_y12_dumbbell',
     c10: 'c10_pipeline_waffle', c11: 'c11_workforce_isotype'
   };
