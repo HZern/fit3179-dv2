@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Who Will Build Australia's Future? STEM Education from Classroom to Career</title>
+  <meta name="description" content="A data visualisation of participation in science, technology, engineering and mathematics (STEM) education in Australia, from Year 12 to university to the workforce.">
+  <meta name="author" content="Lim Hui Zern">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.30.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.21.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.26.0"></script>
+</head>
+<body>
+
+<!-- ================= HERO ================= -->
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">STEM education in Australia · 2013–2025</p>
+    <h1>Who will build Australia's future?</h1>
+    <p class="dek">Science, technology, engineering and maths (STEM) skills power everything from hospitals to power grids. This page follows Australian students from the school classroom to university and into STEM jobs, and asks who joins, who stays, and who drops out along the way.</p>
+    <div class="kpis">
+      <div class="kpi"><div class="kpi-num">36%</div><p>of all Year 12 subject enrolments were in STEM subjects in 2024</p></div>
+      <div class="kpi"><div class="kpi-num">441k</div><p>university enrolments in STEM fields in 2024, up 47% from 2015</p></div>
+      <div class="kpi"><div class="kpi-num">16%</div><p>of workers in STEM-qualified jobs were women in 2025</p></div>
+    </div>
+    <p class="byline">By Lim Hui Zern · FIT3179 Data Visualisation 2 · October 2026</p>
+  </div>
+</header>
+
+<main>
+<div class="wrap">
+
+  <!-- ================= INTRO ================= -->
+  <section class="intro prose">
+    <p>To fill future STEM jobs, Australia needs a steady flow of young people who study these subjects. For readers in Malaysia this story is close to home: more than 23,000 students from Malaysia are enrolled with Australian universities, and many of them study STEM.</p>
+    <p>We look at four stages of the journey: how well students learn maths at school, what they choose to study at university, where they come from, and how many women stay in STEM until they get a job.</p>
+    <p class="defn"><strong>What counts as STEM here?</strong> For university data we follow the Australian Government's STEM Equity Monitor: <em>natural &amp; physical sciences</em> (which includes maths), <em>information technology</em>, <em>engineering</em> and <em>agriculture &amp; environmental studies</em>. Health courses such as nursing and medicine are counted separately.</p>
+  </section>
+
+  <!-- ================= 1. SCHOOL MATHS ================= -->
+  <section class="chapter" id="school">
+    <div class="section-head">
+      <div class="section-no">01</div>
+      <div>
+        <h2>It starts with maths at school</h2>
+        <p>Every few years the OECD's PISA test checks how well 15-year-olds can use maths in real-life problems. A strong maths foundation is the first door into STEM. Australia sits in the upper-middle of the world, ahead of the OECD average but well behind East Asian leaders like Singapore and Japan.</p>
+      </div>
+    </div>
+    <div class="grid">
+      <figure class="card span-12">
+        <h3>PISA 2022 mathematics scores by country</h3>
+        <p class="sub">Average score of 15-year-old students. Teal = above the OECD average of 472; sand = below. Grey countries did not take part.</p>
+        <p class="hint">Hover over a country to see its score and rank</p>
+        <div id="c1" class="chart"></div>
+        <figcaption><strong>Australia scored 487 (17th of 81)</strong>, just above the OECD average. <span class="mys">Malaysia scored 409 (53rd)</span>, while neighbour Singapore topped the world with 575.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ================= 2. UNIVERSITY CHOICES ================= -->
+  <section class="chapter" id="university">
+    <div class="section-head">
+      <div class="section-no">02</div>
+      <div>
+        <h2>At university, IT is the breakout subject</h2>
+        <p>Australian universities had 1.68 million students in 2024. Business (management &amp; commerce) is still the most popular field, but its numbers have stopped growing. Information technology has grown faster than any other field and has jumped over education, sciences and engineering.</p>
+      </div>
+    </div>
+    <div class="grid">
+      <figure class="card span-6">
+        <h3>Which fields are most popular?</h3>
+        <p class="sub">Rank of each field by number of enrolments, 2015–2024. STEM fields in colour.</p>
+        <p class="hint">Hover a line to follow one field</p>
+        <div id="c2" class="chart"></div>
+        <figcaption><strong>IT climbed from 8th to 4th place.</strong> Engineering slipped from 6th to 7th, and agriculture &amp; environment stayed last.</figcaption>
+      </figure>
+      <figure class="card span-6">
+        <h3>How much has each field grown since 2015?</h3>
+        <p class="sub">% change in enrolments compared with 2015. Darker teal = faster growth; brown = shrinking.</p>
+        <p class="hint">Hover a cell for the exact number of students</p>
+        <div id="c3" class="chart"></div>
+        <figcaption><strong>IT enrolments rose 171%</strong>, from 61,000 to 164,000. The other STEM fields grew only 5–17%, slower than health (+34%).</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ================= 3. WHERE ================= -->
+  <section class="chapter" id="where">
+    <div class="section-head">
+      <div class="section-no">03</div>
+      <div>
+        <h2>Where in Australia is STEM studied?</h2>
+        <p>About one in four university enrolments is in a STEM field, but this varies across the country. STEM study is concentrated in the big east-coast cities, especially Melbourne and Sydney, where the largest universities are.</p>
+      </div>
+    </div>
+    <div class="grid">
+      <figure class="card span-6">
+        <h3>Share of university enrolments in STEM, by state</h3>
+        <p class="sub">2024, by the state where the university is based.</p>
+        <p class="hint">Hover a state for student numbers</p>
+        <div id="c4" class="chart"></div>
+        <figcaption><strong>Victoria leads with 29%</strong>; South Australia, Tasmania and the Northern Territory are lowest at about 22%.</figcaption>
+      </figure>
+      <figure class="card span-6">
+        <h3>STEM students at each university</h3>
+        <p class="sub">Each circle is a university (main campus); its area shows the number of STEM enrolments in 2024.</p>
+        <p class="hint">Hover a circle for the university's STEM mix</p>
+        <div id="c5" class="chart"></div>
+        <figcaption><strong>The 7 universities based in Melbourne teach 123,000 STEM students</strong>, more than Sydney's 6 (102,000). Regional universities are small dots.</figcaption>
+      </figure>
+      <figure class="card span-12">
+        <h3>The universities with the most STEM students</h3>
+        <p class="sub">Top 12 universities by STEM enrolments in 2024, split by STEM field. Use the menu to look at one state.</p>
+        <div id="c6" class="chart"></div>
+        <figcaption><strong>UNSW (36,500) and Monash (34,300) are the STEM giants.</strong> Their mixes differ: UNSW and RMIT lean towards engineering, Swinburne and Deakin towards IT, and the University of Melbourne towards the sciences. These numbers include students at overseas campuses, such as Monash and Curtin in Malaysia.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ================= 4. GLOBAL ================= -->
+  <section class="chapter" id="global">
+    <div class="section-head">
+      <div class="section-no">04</div>
+      <div>
+        <h2>A global classroom</h2>
+        <p>More than a third of Australia's university students (589,000 in 2024) come from overseas. They fill many STEM classrooms. In IT, international students now graduate in greater numbers than Australians.</p>
+      </div>
+    </div>
+    <div class="grid">
+      <figure class="card span-12">
+        <h3>Where do international university students come from?</h3>
+        <p class="sub">Top 15 home countries of international students enrolled with Australian universities, 2024 (all fields). Line width shows the number of students.</p>
+        <p class="hint">Hover a line to highlight one country</p>
+        <div id="c7" class="chart"></div>
+        <figcaption><strong>China (166,500) and India (89,500) are by far the largest sources.</strong> <span class="mys">Malaysia ranks 6th with 23,600 students</span>, including those studying at Australian universities' campuses in Malaysia.</figcaption>
+      </figure>
+      <figure class="card span-12">
+        <h3>Who graduates in STEM: domestic or international students?</h3>
+        <p class="sub">University course completions (graduates per year) in each STEM field, 2015–2024.</p>
+        <p class="hint">Hover a point for the exact number</p>
+        <div id="c8" class="chart"></div>
+        <figcaption><strong>In IT, 24,100 international students graduated in 2024, twice as many as domestic students (11,600).</strong> Engineering is now an even split, while sciences and agriculture are still mostly Australian students. The dip in 2022–23 likely reflects fewer new international students during the COVID-19 border closures.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ================= 5. LEAKY PIPELINE ================= -->
+  <section class="chapter" id="pipeline">
+    <div class="section-head">
+      <div class="section-no">05</div>
+      <div>
+        <h2>The leaky pipeline: where do the women go?</h2>
+        <p>Girls take almost half of all Year 12 STEM subjects, but at every later stage their share shrinks. Experts call this the "leaky pipeline": women leak out of STEM between school, university and work.</p>
+      </div>
+    </div>
+    <div class="grid">
+      <figure class="card span-7">
+        <h3>Girls' share of Year 12 STEM subjects, 2013 vs 2024</h3>
+        <p class="sub">Each row is a subject group. The dashed line marks an equal split between girls and boys.</p>
+        <div id="c9" class="chart"></div>
+        <figcaption><strong>Girls are the majority in biology (65%) but only a quarter of physics, IT and engineering students.</strong> IT improved the most (22% → 27%), yet physics, IT and engineering are all still below 30% after 11 years.</figcaption>
+      </figure>
+      <figure class="card span-5">
+        <h3>Out of every 100 people at each stage…</h3>
+        <p class="sub">Share of women at four stages of the STEM pipeline.</p>
+        <div id="c10" class="chart"></div>
+        <figcaption><strong>From 47 in every 100 at Year 12 to just 16 in every 100 in STEM jobs.</strong> At university, women are only 21% of engineering and 23% of IT enrolments.</figcaption>
+      </figure>
+      <figure class="card span-12">
+        <h3>Women and men working in STEM-qualified jobs, 2015 vs 2025</h3>
+        <p class="sub">Each figure represents 50,000 workers in jobs where most people hold a STEM qualification (e.g. engineers, ICT professionals, scientists, electricians).</p>
+        <div id="c11" class="chart"></div>
+        <figcaption><strong>The number of women in STEM jobs almost doubled (+92%) in ten years</strong>, faster than men (+26%). But men still outnumber women by more than 5 to 1.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ================= CONCLUSION ================= -->
+  <section class="chapter" id="takeaways">
+    <div class="section-head">
+      <div class="section-no">→</div>
+      <div>
+        <h2>What does this mean for Australia's future STEM workforce?</h2>
+        <p>Australia's STEM pipeline is growing, but it depends on a narrow base: one fast-growing field, a few big-city universities, international students, and mostly men.</p>
+      </div>
+    </div>
+    <div class="takeaways">
+      <div><h3>1. IT is booming</h3><p>IT enrolments have nearly tripled since 2015, while sciences, engineering and agriculture have grown slowly.</p></div>
+      <div><h3>2. Reliant on the world</h3><p>International students, including thousands from <span class="mys">Malaysia</span>, now produce most of Australia's new IT graduates.</p></div>
+      <div><h3>3. Women are still missing</h3><p>Women make up 47% of Year 12 STEM enrolments but only 16% of the STEM workforce. Closing this gap is the biggest untapped source of STEM talent.</p></div>
+    </div>
+  </section>
+
+</div>
+</main>
+
+<!-- ================= FOOTER / METADATA ================= -->
+<footer>
+  <div class="wrap foot-grid">
+    <div>
+      <h4>Data sources</h4>
+      <ol>
+        <li>Australian Government Department of Education (2025). <em>Selected Higher Education Statistics – 2024 Student data</em>: Summary time series (Table 2), Section 2 All students (Table 2.10), Section 7 Overseas students (Table 7.4), Section 14 Award course completions (Table 14.3). <a href="https://www.education.gov.au/higher-education-statistics/student-data/selected-higher-education-statistics-2024-student-data">education.gov.au</a></li>
+        <li>Australian Government Department of Industry, Science and Resources (2026). <em>STEM Equity Monitor</em>: Year 12 subject enrolment in STEM; University enrolment and completion in STEM; Detailed STEM-qualified occupations by gender (data from Department of Education and ABS). <a href="https://www.industry.gov.au/publications/stem-equity-monitor">industry.gov.au/stem-equity-monitor</a></li>
+        <li>OECD (2023). <em>PISA 2022 Results (Volume I)</em>, mean mathematics scores. <a href="https://www.oecd.org/en/publications/pisa-2022-results-volume-i-and-ii-country-notes_ed6fbcc5-en/australia_e9346d47-en.html">oecd.org</a>; ranking table compiled by The Hechinger Report from OECD data: <a href="https://hechingerreport.org/wp-content/uploads/2023/12/Math-rankings-PISA-2022.pdf">hechingerreport.org</a></li>
+        <li>Map data: Natural Earth country boundaries via <a href="https://github.com/topojson/world-atlas">world-atlas</a> (public domain); Australian state boundaries from <a href="https://github.com/rowanhogan/australian-states">rowanhogan/australian-states</a> (based on ABS boundaries). University locations are approximate main-campus coordinates added by the author.</li>
+      </ol>
+      <p style="margin-top:12px">Notes: STEM = natural &amp; physical sciences, information technology, engineering &amp; related technologies, and agriculture, environmental &amp; related studies. Students in combined degrees may be counted in two fields. Cells marked "np" or "&lt;5" in the source were treated as zero.</p>
+    </div>
+    <div>
+      <h4>About</h4>
+      <p><strong>Author:</strong> Lim Hui Zern<br><strong>Created:</strong> October 2026<br><strong>Unit:</strong> FIT3179 Data Visualisation, Monash University Malaysia</p>
+      <p>Built with <a href="https://vega.github.io/vega-lite/">Vega-Lite</a>. Typefaces: Space Grotesk and IBM Plex Sans (Google Fonts). Chart specifications are in the <code>js/</code> folder of this <a href="https://github.com/HZern/fit3179-dv2">GitHub repository</a>.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const opts = { actions: false, renderer: 'svg' };
+  const charts = {
+    c1: 'c1_pisa_map', c2: 'c2_bump', c3: 'c3_heatmap', c4: 'c4_state_choropleth', c5: 'c5_uni_symbols',
+    c6: 'c6_top_unis', c7: 'c7_flow_map', c8: 'c8_completions', c9: 'c9_y12_dumbbell',
+    c10: 'c10_pipeline_waffle', c11: 'c11_workforce_isotype'
+  };
+  for (const [id, file] of Object.entries(charts)) {
+    vegaEmbed('#' + id, 'js/' + file + '.vl.json', opts).catch(err => console.error(id, err));
+  }
+</script>
+</body>
+</html>
