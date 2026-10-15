@@ -1,9 +1,9 @@
-state,Natural & physical sciences,Information technology,Engineering,Agriculture & environment,stem,total,stem_share
-Australian Capital Territory,4379,4333,1702,740,11154,42750,26.1
-New South Wales,40434,58590,42536,5551,147111,545124,27.0
-Northern Territory,266,1322,863,280,2731,12695,21.5
-Queensland,20713,18355,20871,3567,63506,249119,25.5
-South Australia,6228,11625,7812,1287,26952,123926,21.7
-Tasmania,2262,1690,1236,1829,7017,32009,21.9
-Victoria,44112,56271,33132,3767,137282,470742,29.2
-Western Australia,15607,11580,14793,2351,44331,162222,27.3
+state,Natural & physical sciences,Information technology,Engineering,Agriculture & environment,stem,total,stem_share,unis,top_uni,top_uni_stem,lat,lon,abbr
+Australian Capital Territory,4379,4333,1702,740,11154,42750,26.1,2,The Australian National University,7937,-35.4,149.1,ACT
+New South Wales,40434,58590,42536,5551,147111,545124,27.0,10,University of New South Wales,36502,-31.4,147.6,NSW
+Northern Territory,266,1322,863,280,2731,12695,21.5,1,Charles Darwin University,2731,-19.6,133.4,NT
+Queensland,20713,18355,20871,3567,63506,249119,25.5,8,The University of Queensland,20822,-22.8,144.6,QLD
+South Australia,6228,11625,7812,1287,26952,123926,21.7,4,The University of Adelaide,11721,-30.2,135.6,SA
+Tasmania,2262,1690,1236,1829,7017,32009,21.9,1,University of Tasmania,7017,-42.1,146.7,TAS
+Victoria,44112,56271,33132,3767,137282,470742,29.2,8,Monash University,34256,-37.3,143.3,VIC
+Western Australia,15607,11580,14793,2351,44331,162222,27.3,5,Curtin University,13257,-25.6,122.0,WA
