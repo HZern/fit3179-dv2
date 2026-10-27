@@ -187,6 +187,12 @@ footer ol { padding-left: 18px; margin: 0; }
 footer li { margin-bottom: 6px; }
 .foot-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 40px; }
 
+/* ---------- Line length: no more than 10 words per line ---------- */
+.hero .dek, .intro p, .section-head p, .prose p, .defn,
+figure.card .sub, .hint, .takeaways p, footer p, footer li, .byline { max-width: 40ch; }
+/* captions keep their full-width divider line; only the text is narrowed */
+figcaption { padding-right: max(0px, calc(100% - 40ch)); }
+
 /* ---------- Responsive ---------- */
 @media (max-width: 900px) {
   .span-6, .span-7, .span-5 { grid-column: span 12; }
