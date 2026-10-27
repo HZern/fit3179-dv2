@@ -1,22 +1,39 @@
-/* FIT3179 DV2 – STEM education in Australia */
+/* FIT3179 DV2 – STEM education in Australia
+   Visual theme: an engineering blueprint. Navy "blueprint" sheets alternate
+   with cream "drafting paper" sheets; charts sit on white drawing cards. */
 :root {
-  --paper: #fbfaf7;
+  --paper: #f6f3ec;
   --panel: #ffffff;
-  --ink: #1d2433;
+  --ink: #14233a;
   --muted: #5f6b7a;
-  --rule: #e6e3dc;
+  --rule: #dcd8ce;
+  --blue: #0f2c4c;          /* blueprint navy */
+  --blue-deep: #0a2038;
+  --blue-line: #9cc3e8;     /* blueprint line colour */
+  --on-blue: #e9f0f7;
+  --on-blue-muted: #a9bfd6;
   --teal: #2a9d8f;
+  --teal-light: #8fd1c7;
   --teal-dark: #105e5a;
   --indigo: #3d5a80;
-  --amber: #e9a23b;
-  --green: #7fb069;
   --accent: #c8553d;
+  --accent-light: #f0a08c;
   --maxw: 1120px;
   --gutter: 32px;
+  --display: "Archivo", "Space Grotesk", "IBM Plex Sans", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, monospace;
+  /* graph-paper grids */
+  --grid-blue:
+    linear-gradient(rgba(156,195,232,0.16) 1px, transparent 1px) 0 0 / 120px 120px,
+    linear-gradient(90deg, rgba(156,195,232,0.16) 1px, transparent 1px) 0 0 / 120px 120px,
+    linear-gradient(rgba(156,195,232,0.07) 1px, transparent 1px) 0 0 / 24px 24px,
+    linear-gradient(90deg, rgba(156,195,232,0.07) 1px, transparent 1px) 0 0 / 24px 24px;
+  --grid-paper:
+    linear-gradient(rgba(61,90,128,0.07) 1px, transparent 1px) 0 0 / 24px 24px,
+    linear-gradient(90deg, rgba(61,90,128,0.07) 1px, transparent 1px) 0 0 / 24px 24px;
 }
 
 * { box-sizing: border-box; }
-
 html { scroll-behavior: smooth; }
 
 body {
@@ -29,8 +46,8 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-h1, h2, h3, .kpi-num, .section-no {
-  font-family: "Space Grotesk", "IBM Plex Sans", sans-serif;
+h1, h2, h3, .kpi-num {
+  font-family: var(--display);
   letter-spacing: -0.01em;
 }
 
@@ -42,111 +59,166 @@ a { color: var(--indigo); text-underline-offset: 2px; }
   padding: 0 var(--gutter);
 }
 
-/* ---------- Hero ---------- */
+/* ---------- Hero (blueprint cover sheet) ---------- */
 .hero {
-  background: var(--ink);
-  color: #f4f1ea;
-  padding: 64px 0 48px;
+  background: var(--grid-blue), var(--blue);
+  color: var(--on-blue);
+  padding: 64px 0 40px;
+  border-bottom: 6px double rgba(156,195,232,0.5);
 }
 .eyebrow {
+  font-family: var(--mono);
   font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.12em;
+  font-weight: 500;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #8fd1c7;
-  margin: 0 0 14px;
+  color: var(--teal-light);
+  margin: 0 0 16px;
 }
 .hero h1 {
-  font-size: clamp(36px, 5vw, 58px);
-  line-height: 1.05;
-  font-weight: 700;
-  margin: 0 0 16px;
-  max-width: 15ch;
+  font-size: clamp(38px, 5.6vw, 68px);
+  font-stretch: 118%;
+  line-height: 1.02;
+  font-weight: 800;
+  margin: 0 0 18px;
+  max-width: 18ch;
+  color: #fff;
 }
 .hero .dek {
   font-size: 20px;
   line-height: 1.5;
-  color: #d6d2c8;
-  max-width: 62ch;
-  margin: 0 0 36px;
+  color: #cbd8e6;
+  margin: 0 0 28px;
 }
+
+/* Leaky-pipeline schematic */
+.schematic { margin: 8px 0 28px; }
+.schematic svg { width: 100%; height: auto; display: block; overflow: visible; }
+.schematic #hatch line { stroke: rgba(156,195,232,0.45); stroke-width: 1.4; }
+.schematic .pipe { fill: url(#hatch); stroke: #dbe8f5; stroke-width: 1.6; stroke-linejoin: round; }
+.schematic .flange { fill: var(--blue); stroke: #dbe8f5; stroke-width: 1.6; }
+.schematic .centre { stroke: var(--blue-line); stroke-width: 1; stroke-dasharray: 18 5 3 5; opacity: 0.7; }
+.schematic .drip { fill: var(--accent-light); }
+.schematic .st { font-family: var(--mono); font-size: 12px; fill: var(--on-blue-muted); text-anchor: middle; letter-spacing: 0.06em; }
+.schematic .val { font-family: var(--display); font-stretch: 112%; font-weight: 800; font-size: 28px; fill: #fff; text-anchor: middle; }
+.schematic figcaption {
+  font-family: var(--mono); font-size: 12px; color: var(--on-blue-muted);
+  border-top: 1px dashed rgba(156,195,232,0.4); margin-top: 6px; padding: 8px 0 0;
+}
+.schematic figcaption a { color: var(--teal-light); }
+
 .kpis {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
-  border-top: 1px solid rgba(255,255,255,0.15);
-  padding-top: 28px;
+  border-top: 1px solid rgba(156,195,232,0.35);
+  padding-top: 26px;
 }
 .kpi-num {
-  font-size: 44px;
-  font-weight: 700;
+  font-size: 46px;
+  font-stretch: 115%;
+  font-weight: 800;
   line-height: 1;
-  color: #8fd1c7;
+  color: var(--teal-light);
 }
-.kpi:nth-child(3) .kpi-num { color: #f0a08c; }
-.kpi p { margin: 8px 0 0; font-size: 15px; line-height: 1.45; color: #d6d2c8; max-width: 30ch; }
-.byline { margin-top: 32px; font-size: 13px; color: #a9a59c; }
+.kpi:nth-child(3) .kpi-num { color: var(--accent-light); }
+.kpi p { margin: 10px 0 0; font-size: 15px; line-height: 1.45; color: #cbd8e6; max-width: 30ch; }
+
+/* Engineering-drawing title block */
+.titleblock {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  justify-content: end;
+  margin: 36px 0 0;
+  border: 1px solid rgba(156,195,232,0.55);
+  width: fit-content;
+  margin-left: auto;
+}
+.titleblock div { padding: 6px 14px; border-left: 1px solid rgba(156,195,232,0.55); }
+.titleblock div:first-child { border-left: 0; }
+.titleblock dt { font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--on-blue-muted); }
+.titleblock dd { margin: 0; font-family: var(--mono); font-size: 13px; color: #fff; }
 
 /* ---------- Intro / sections ---------- */
-.intro { padding: 48px 0 8px; }
-.intro p, .section-head p, .prose p { max-width: 68ch; }
+.intro { padding: 52px 0 40px; background: var(--grid-paper), var(--paper); }
 .intro p:first-child { font-size: 19px; color: var(--ink); }
 .defn {
-  border-left: 4px solid var(--teal);
-  background: #eef6f4;
+  border: 1px solid var(--ink);
+  border-left: 6px solid var(--teal);
+  background: #fff;
   padding: 14px 18px;
   font-size: 15px;
-  max-width: 68ch;
-  margin: 20px 0 0;
+  margin: 22px 0 0;
 }
 
-section.chapter { padding: 56px 0 8px; border-top: 1px solid var(--rule); margin-top: 40px; }
-.section-head { display: grid; grid-template-columns: 64px 1fr; gap: 0 18px; margin-bottom: 18px; }
-.section-no {
-  font-size: 40px; font-weight: 700; color: var(--teal); line-height: 1;
-  padding-top: 4px;
+section.chapter {
+  padding: 64px 0 64px;
+  background: var(--grid-paper), var(--paper);
+  border-top: 1px solid var(--rule);
 }
-.section-head h2 { font-size: 32px; line-height: 1.15; margin: 0 0 10px; font-weight: 700; }
+.section-head { display: grid; grid-template-columns: 72px 1fr; gap: 0 20px; margin-bottom: 20px; }
+/* section number drawn like a callout bubble on a technical drawing */
+.section-no {
+  width: 60px; height: 60px; border-radius: 50%;
+  border: 2px solid var(--teal);
+  display: grid; place-items: center;
+  font-family: var(--mono); font-size: 20px; font-weight: 500; color: var(--teal-dark);
+  background: var(--paper);
+  margin-top: 2px;
+}
+.section-head h2 { font-size: 36px; font-stretch: 112%; line-height: 1.1; margin: 0 0 12px; font-weight: 800; }
 .section-head p { margin: 0; color: #3a4252; }
 
+/* Blueprint sections */
+section.chapter.blue {
+  background: var(--grid-blue), var(--blue);
+  color: var(--on-blue);
+  border-top: 0;
+}
+.blue .section-head h2 { color: #fff; }
+.blue .section-head p { color: #cbd8e6; }
+.blue .section-no { border-color: var(--teal-light); color: var(--teal-light); background: var(--blue); }
+
 /* ---------- Grid of figures ---------- */
-.grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 28px; margin-top: 24px; }
+.grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 28px; margin-top: 28px; }
 .span-12 { grid-column: span 12; }
 .span-6 { grid-column: span 6; }
 .span-7 { grid-column: span 7; }
 .span-5 { grid-column: span 5; }
 
+main { counter-reset: fig; }
 figure.card {
+  counter-increment: fig;
+  position: relative;
   margin: 0;
   background: var(--panel);
-  border: 1px solid var(--rule);
-  border-radius: 10px;
-  padding: 20px 22px 16px;
+  border: 1px solid #c3ccd8;
+  border-radius: 2px;
+  padding: 22px 22px 16px;
   min-width: 0;
+  color: var(--ink);
+  box-shadow: 0 1px 0 rgba(20,35,58,0.04), 0 10px 24px -18px rgba(20,35,58,0.35);
 }
-figure.card h3 { font-size: 18px; margin: 0 0 4px; font-weight: 600; line-height: 1.3; }
+/* figure number, like a drawing sheet reference */
+figure.card::before {
+  content: "FIG. " counter(fig, decimal-leading-zero);
+  position: absolute; top: 0; right: 0;
+  font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.08em;
+  color: #fff; background: var(--ink);
+  padding: 3px 9px;
+}
+.blue figure.card { border-color: transparent; box-shadow: 0 18px 40px -22px rgba(0,0,0,0.6); }
+.blue figure.card::before { background: var(--teal); }
+figure.card h3 { font-size: 19px; font-stretch: 105%; margin: 0 0 4px; font-weight: 700; line-height: 1.25; padding-right: 64px; }
 figure.card .sub { font-size: 14px; color: var(--muted); margin: 0 0 12px; line-height: 1.45; }
 .chart { width: 100%; min-height: 120px; overflow-x: auto; }
 figcaption {
   font-size: 13.5px; color: var(--muted); line-height: 1.5;
-  border-top: 1px solid var(--rule); margin-top: 12px; padding-top: 10px;
+  border-top: 1px dashed #c3ccd8; margin-top: 12px; padding-top: 10px;
 }
 figcaption strong { color: var(--ink); font-weight: 600; }
-.hint { font-size: 12.5px; color: var(--muted); font-style: italic; margin: 0 0 6px; }
-.hint::before { content: "↳ "; font-style: normal; }
-
-/* Callout / takeaway */
-.callout {
-  background: #fff6f2;
-  border-left: 4px solid var(--accent);
-  padding: 14px 18px;
-  border-radius: 0 8px 8px 0;
-  font-size: 15.5px;
-  line-height: 1.5;
-}
-.callout b { color: var(--accent); }
-.callout.teal { background: #eef6f4; border-left-color: var(--teal); }
-.callout.teal b { color: var(--teal-dark); }
+.hint { font-family: var(--mono); font-size: 12px; color: var(--muted); margin: 0 0 6px; }
+.hint::before { content: "↳ "; }
 
 .mys { color: var(--accent); font-weight: 600; }
 
@@ -154,44 +226,48 @@ figcaption strong { color: var(--ink); font-weight: 600; }
 .vega-bindings { font-size: 13.5px; color: var(--muted); margin-bottom: 8px; }
 .vega-bind-name { font-weight: 600; color: var(--ink); margin-right: 6px; }
 .vega-bindings select {
-  font-family: inherit; font-size: 13.5px; padding: 4px 8px; border: 1px solid #c9c4b8; border-radius: 6px; background: #fff;
+  font-family: inherit; font-size: 13.5px; padding: 4px 8px; border: 1px solid #c3ccd8; border-radius: 2px; background: #fff;
 }
 
 /* Tooltip */
 #vg-tooltip-element {
   font-family: "IBM Plex Sans", sans-serif !important;
   font-size: 12.5px !important;
-  border-radius: 6px !important;
+  border-radius: 2px !important;
   border: 1px solid var(--rule) !important;
-  box-shadow: 0 4px 14px rgba(29,36,51,0.12) !important;
+  box-shadow: 0 4px 14px rgba(20,35,58,0.14) !important;
 }
 #vg-tooltip-element td.key { color: var(--muted) !important; }
 
 /* ---------- Conclusion & footer ---------- */
-.takeaways { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 20px; }
-.takeaways div { background: var(--panel); border: 1px solid var(--rule); border-radius: 10px; padding: 18px 20px; }
-.takeaways h3 { font-size: 17px; margin: 0 0 6px; }
-.takeaways p { font-size: 15px; margin: 0; color: #3a4252; }
+.takeaways { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 24px; }
+.takeaways div {
+  border: 1px solid rgba(156,195,232,0.55);
+  background: rgba(10,32,56,0.55);
+  padding: 20px 20px 22px;
+}
+.takeaways h3 { font-size: 18px; font-stretch: 108%; margin: 0 0 8px; color: #fff; }
+.takeaways p { font-size: 15px; margin: 0; color: #cbd8e6; }
+.blue .mys { color: var(--accent-light); }
 
 footer {
-  margin-top: 64px;
-  background: #f1eee7;
-  border-top: 1px solid var(--rule);
-  padding: 36px 0 48px;
+  background: var(--paper);
+  border-top: 6px double var(--rule);
+  padding: 40px 0 52px;
   font-size: 13.5px;
   line-height: 1.55;
   color: #3a4252;
 }
-footer h4 { font-family: "Space Grotesk", sans-serif; font-size: 15px; margin: 0 0 8px; color: var(--ink); }
+footer h4 { font-family: var(--mono); font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; font-size: 12px; margin: 0 0 10px; color: var(--ink); }
 footer ol { padding-left: 18px; margin: 0; }
 footer li { margin-bottom: 6px; }
 .foot-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 40px; }
 
 /* ---------- Line length: no more than 10 words per line ---------- */
 .hero .dek, .intro p, .section-head p, .prose p, .defn,
-figure.card .sub, .hint, .takeaways p, footer p, footer li, .byline { max-width: 40ch; }
+figure.card .sub, .hint, .takeaways p, footer p, footer li { max-width: 40ch; }
 /* captions keep their full-width divider line; only the text is narrowed */
-figcaption { padding-right: max(0px, calc(100% - 40ch)); }
+figure.card figcaption { padding-right: max(0px, calc(100% - 40ch)); }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 900px) {
@@ -201,6 +277,11 @@ figcaption { padding-right: max(0px, calc(100% - 40ch)); }
 }
 @media (max-width: 560px) {
   :root { --gutter: 16px; }
-  .section-head { grid-template-columns: 1fr; }
-  figure.card { padding: 14px; }
+  .section-head { grid-template-columns: 1fr; gap: 12px; }
+  figure.card { padding: 26px 14px 14px; }
+  .titleblock { grid-template-columns: repeat(2, auto); margin-left: 0; }
+  .titleblock div:nth-child(3) { border-left: 0; }
+  .titleblock div:nth-child(n+3) { border-top: 1px solid rgba(156,195,232,0.55); }
+  .schematic .st { font-size: 20px; }
+  .schematic .val { font-size: 40px; }
 }
