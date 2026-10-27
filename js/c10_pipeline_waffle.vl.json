@@ -39,8 +39,8 @@
   },
   "columns": 2,
   "spec": {
-    "width": 168,
-    "height": 168,
+    "width": 150,
+    "height": 150,
     "layer": [
       {
         "mark": {
@@ -74,6 +74,9 @@
                 "#c8553d",
                 "#d8d4cb"
               ]
+            },
+            "legend": {
+              "orient": "top"
             }
           },
           "tooltip": [
@@ -95,8 +98,8 @@
     ]
   },
   "spacing": {
-    "column": 34,
-    "row": 26
+    "column": 30,
+    "row": 24
   },
   "config": {
     "font": "IBM Plex Sans",
