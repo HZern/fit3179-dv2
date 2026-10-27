@@ -211,7 +211,9 @@ figure.card::before {
 .blue figure.card::before { background: var(--teal); }
 figure.card h3 { font-size: 19px; font-stretch: 105%; margin: 0 0 4px; font-weight: 700; line-height: 1.25; padding-right: 64px; }
 figure.card .sub { font-size: 14px; color: var(--muted); margin: 0 0 12px; line-height: 1.45; }
-.chart { width: 100%; min-height: 120px; overflow-x: auto; }
+.chart { width: 100%; min-height: 120px; }
+/* never scroll sideways: a chart wider than its card is scaled down to fit */
+.chart svg { max-width: 100%; height: auto; display: block; }
 figcaption {
   font-size: 13.5px; color: var(--muted); line-height: 1.5;
   border-top: 1px dashed #c3ccd8; margin-top: 12px; padding-top: 10px;
@@ -269,11 +271,45 @@ figure.card .sub, .hint, .takeaways p, footer p, footer li { max-width: 40ch; }
 /* captions keep their full-width divider line; only the text is narrowed */
 figure.card figcaption { padding-right: max(0px, calc(100% - 40ch)); }
 
+/* ---------- Using the horizontal space ---------- */
+/* Section heads: heading on the left, story paragraph on the right */
+.section-head > div:last-child {
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 0 48px; align-items: start;
+}
+.section-head h2 { margin-top: 4px; }
+/* Intro: story on the left, the STEM definition box on the right */
+.intro .wrap { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 0 48px; }
+.intro .wrap > p { grid-column: 1; }
+.intro .wrap > .defn { grid-column: 2; grid-row: 1 / span 2; align-self: start; margin-top: 4px; }
+/* Full-width cards: title on the left, key finding on the right */
+.card-head {
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 0 40px; align-items: start; margin-bottom: 4px;
+}
+.finding {
+  margin: 4px 0 0; padding: 12px 16px 14px;
+  background: #f1f6f5; border-left: 4px solid var(--teal);
+  font-size: 14.5px; line-height: 1.5; color: #3a4252;
+  max-width: 44ch;
+}
+.finding::before {
+  content: "Key finding"; display: block; margin-bottom: 4px;
+  font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--teal-dark);
+}
+.finding strong { color: var(--ink); font-weight: 600; }
+.wide .card-head h3 { padding-right: 0; }
+.wide .card-head .finding { margin-top: 28px; }
+
 /* ---------- Responsive ---------- */
 @media (max-width: 900px) {
   .span-6, .span-7, .span-5 { grid-column: span 12; }
   .kpis, .takeaways { grid-template-columns: 1fr; }
   .foot-grid { grid-template-columns: 1fr; }
+  .section-head > div:last-child, .intro .wrap, .card-head { grid-template-columns: 1fr; }
+  .intro .wrap > .defn { grid-column: 1; grid-row: auto; }
+  .wide .card-head .finding { margin-top: 8px; }
 }
 @media (max-width: 560px) {
   :root { --gutter: 16px; }
